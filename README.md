@@ -27,6 +27,17 @@ npm test
 
 Runs the unit tests for the pricing engine and the state store (`node --test`).
 
+## Deploy
+
+Live at <https://roaddog.aiworldexperts.com> (Cloudflare Worker, static assets, custom domain).
+
+```bash
+npm run deploy
+```
+
+Copies the site files into `dist/` and runs `wrangler deploy` using `wrangler.jsonc`. Requires a
+`wrangler login` on the Cloudflare account that owns the `aiworldexperts.com` zone.
+
 ## How it is put together
 
 | File | Role |

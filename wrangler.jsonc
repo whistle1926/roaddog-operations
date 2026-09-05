@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers static-assets deployment. Deploy with: npm run deploy (builds dist/ then uploads it)
+  "name": "roaddog-operations",
+  "compatibility_date": "2026-08-15",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "none"
+  },
+  "routes": [
+    { "pattern": "roaddog.aiworldexperts.com", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}

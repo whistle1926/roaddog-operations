@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "build": "rm -rf dist && mkdir -p dist && cp -R index.html styles.css src dist/",
+    "deploy": "npm run build && npx wrangler deploy"
   },
   "engines": {
     "node": ">=20"
