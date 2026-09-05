@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const n=new URLSearchParams(location.search).get("theme");if(n==="light"||n==="dark"){document.documentElement.dataset.theme=n}}{if(new URLSearchParams(location.search).get("_omthumb")==="1"){const n=(f)=>{const g=f.focus;if(!g)return;f.focus=function(h){g.call(this,{...h,preventScroll:true})}};n(HTMLElement.prototype);n(SVGElement.prototype);if(typeof MathMLElement!=="undefined"){n(MathMLElement.prototype)}const d=(f)=>{f.removeAttribute("autofocus");f.inert=true;if(!(f instanceof HTMLElement))f.removeAttribute("tabindex")};const p=(f)=>{if(f.hasAttribute("autofocus"))d(f);for(const g of f.querySelectorAll("[autofocus]")){d(g)}};p(document.documentElement);new MutationObserver((f)=>{for(const g of f){for(const h of g.addedNodes){if(h.nodeType===1)p(h)}}}).observe(document,{childList:true,subtree:true})}}{const n=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const d=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if(d&&d!=="normal")return;const p=(y)=>{if(!y)return null;const m=getComputedStyle(y).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!m)return null;const w=m[4]==null?1:parseFloat(m[4])/(m[4].endsWith("%")?100:1);if(w<0.99)return null;return[+m[1],+m[2],+m[3]]};const f=p(document.body)||p(document.documentElement);if(!f)return;const g=(y)=>{const m=y/255;return m<=0.04045?m/12.92:((m+0.055)/1.055)**2.4};const h=0.2126*g(f[0])+0.7152*g(f[1])+0.0722*g(f[2]);document.documentElement.style.setProperty("color-scheme",h<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")n();else window.addEventListener("load",n)}var I=[];var B=false;var K=false;var C=()=>{};if(K===true){try{const n=setTimeout.bind(window);const d=1e4;const p=15;const f=1e4;const g=120000;const h=200;const y=(o)=>{try{let r;if(typeof o==="string")r=o;else if(o instanceof URL)r=o.href;else if(typeof Request!=="undefined"&&o instanceof Request)r=o.url;else return null;if(!r)return null;const l=document.baseURI;const i=new URL(r,l);if(i.protocol!=="http:"&&i.protocol!=="https:")return null;if(i.origin!==new URL(l).origin)return null;return i.origin+i.pathname}catch{return null}};const m=new Map;const w=(o)=>{let r=m.get(o);if(!r){if(m.size>=h){const l=m.keys().next().value;if(l!==undefined)m.delete(l)}r={fails:[],until:0,cooldown:f,hard:false};m.set(o,r)}return r};const R=(o)=>{const r=m.get(o);return r!==undefined&&r.until>Date.now()};const O=(o,r)=>{const l=Date.now();const i=w(o);if(r)i.hard=true;if(i.until>l)return;i.fails.push(l);while(i.fails.length>0&&i.fails[0]<=l-d)i.fails.shift();if(i.fails.length>=p){i.until=l+i.cooldown;if(i.hard)i.cooldown=Math.min(i.cooldown*2,g);i.fails.length=0;try{n(()=>{try{S(true)}catch{}},i.until-l+100)}catch{}console.warn("[omelette] asset circuit breaker: pausing requests to "+o+" for "+Math.round((i.until-l)/1000)+"s after "+p+" failures in "+d/1000+"s")}};const e=(o)=>{m.delete(o)};const t=100;const a=new WeakMap;const u=new Set;let s=null;const S=(o)=>{for(const r of Array.from(u)){try{const l=a.get(r);if(l===undefined){u.delete(r);continue}if(o){const i=y(l);if(i!==null&&R(i))continue}a.delete(r);u.delete(r);if(s!==null)s.call(r,l)}catch{}}};C=()=>{try{m.clear();S(false)}catch{}};document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")C()});const _=window.fetch;if(typeof _==="function"){const o=function(...r){let l=null;try{l=y(r[0])}catch{}if(l!==null&&R(l)){let c;try{if(r[1]&&r[1].signal!==undefined){c=r[1].signal||undefined}else if(typeof Request!=="undefined"&&r[0]instanceof Request){c=r[0].signal||undefined}}catch{c=undefined}return new Promise((k,b)=>{const E=()=>{try{return c.reason!==undefined?c.reason:new DOMException("The operation was aborted.","AbortError")}catch{return new DOMException("The operation was aborted.","AbortError")}};try{if(c&&c.aborted){b(E());return}}catch{}let T=false;const j=()=>{if(T)return;T=true;b(E())};try{if(c)c.addEventListener("abort",j,{once:true})}catch{}n(()=>{if(T)return;T=true;try{if(c)c.removeEventListener("abort",j)}catch{}let L;try{L=new Response(null,{status:429,statusText:"Too Many Requests",headers:{"Retry-After":"10"}})}catch{L={ok:false,status:429}}k(L)},250)})}const i=_.apply(window,r);if(l!==null){const c=l;i.then((k)=>{try{if(k.ok)e(c);else if(k.status===401||k.status===403||k.status===404||k.status===429){O(c,k.status!==404)}}catch{}},()=>{})}return i};window.fetch=o}const v=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");if(v!==undefined&&v.set!==undefined&&v.get!==undefined){const o=v.set;s=o;Object.defineProperty(HTMLImageElement.prototype,"src",{configurable:true,enumerable:v.enumerable,get:v.get,set(r){const l=`${r}`;try{const i=y(l);if(i!==null&&R(i)){a.set(this,l);if(u.size<t)u.add(this);return}}catch{}try{a.delete(this);u.delete(this)}catch{}o.call(this,l)}})}try{const o=HTMLImageElement.prototype.setAttribute;HTMLImageElement.prototype.setAttribute=function(r,l){if(arguments.length<2){o.apply(this,arguments);return}if(typeof r==="string"&&r.toLowerCase()==="src"){const i=`${l}`;try{const c=y(i);if(c!==null&&R(c)){a.set(this,i);if(u.size<t)u.add(this);return}a.delete(this);u.delete(this)}catch{}o.call(this,r,i);return}o.call(this,r,l)}}catch{}window.addEventListener("error",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)O(l,true)}}catch{}},true);window.addEventListener("load",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)e(l);const i=a.get(r);if(i!==undefined){let c=false;try{c=new URL(i,document.baseURI).href===new URL(r.currentSrc||r.src||"",document.baseURI).href}catch{c=false}if(c){a.delete(r);u.delete(r)}}}}catch{}},true)}catch{}}var J=30000;var G=3000;document.addEventListener("DOMContentLoaded",()=>{const n=window.Babel;const d="om-src-id";if(n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[d])){n.registerPlugin(d,({types:h})=>({visitor:{JSXOpeningElement(y,m){const w=y.node;if(w.name&&w.name.type==="JSXMemberExpression")return;for(let t=0;t<w.attributes.length;t++){const a=w.attributes[t];if(a.type==="JSXAttribute"&&a.name&&a.name.name==="data-om-id")return}const R=m.file&&m.file.opts&&m.file.opts.filename||"?";const O=w.loc&&w.loc.start;const e=`jsx:${R}:${w.start??0}:${O?O.line:0}:${O?O.column+1:0}`;w.attributes.push(h.jsxAttribute(h.jsxIdentifier("data-om-id"),h.stringLiteral(e)))}}}))}const p="om-text-extract";let f=false;if(B&&n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[p])){const h=window.React;if(h&&h.useSyncExternalStore&&h.createElement){f=true;const y={};const m=new Set;let w=0;window.__omTextO=y;window.__omTextSet=(e)=>{for(const t in e){const a=e[t];if(a==null)delete y[t];else y[t]=a}w++;m.forEach((t)=>t())};const R=(e)=>{m.add(e);return()=>m.delete(e)};const O=()=>w;window.__OmT=function e(t){h.useSyncExternalStore(R,O,O);return h.createElement("span",{"data-om-text":t.i,className:"__om-t"},t.i in y?y[t.i]:t.children)};n.registerPlugin(p,({types:e})=>{const t={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const a={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const u=(o,r)=>e.logicalExpression("??",e.memberExpression(e.logicalExpression("||",e.memberExpression(e.identifier("window"),e.identifier("__omTextO")),e.objectExpression([])),e.stringLiteral(o),true),r);const s=(o)=>o.file&&o.file.opts&&o.file.opts.filename||"?";const S=(o)=>o.file&&o.file.code||"";const _=(o,r)=>{const l=(c)=>c&&c.start!=null&&c.end!=null&&(c.type==="StringLiteral"||c.type==="TemplateLiteral"&&c.expressions.length===0)?[c.start,c.end]:null;const i=l(r);if(i)return i;if(r&&r.type==="Identifier"){const c=o.scope.getBinding(r.name);if(c&&c.constant&&c.path.node.type==="VariableDeclarator"){return l(c.path.node.init)}}return null};const v=(o,r,l)=>{const i=o.node;let c=false;const k=(E,T)=>{c=true;return e.jsxElement(e.jsxOpeningElement(e.jsxIdentifier("__OmT"),[e.jsxAttribute(e.jsxIdentifier("i"),e.stringLiteral(E))],false),e.jsxClosingElement(e.jsxIdentifier("__OmT")),[T],false)};const b=i.children.map((E)=>{if(E.type==="JSXText"){if(E.start==null||E.end==null)return E;const T=l.slice(E.start,E.end);const j=T.length-T.trimStart().length;const L=T.length-T.trimEnd().length;if(j+L>=T.length)return E;return k(`txt:${r}:${E.start+j}:${E.end-L}`,E)}if(E.type==="JSXExpressionContainer"){const T=_(o,E.expression);if(T)return k(`str:${r}:${T[0]}:${T[1]}`,E)}return E});if(c)i.children=b};return{visitor:{JSXOpeningElement(o,r){const l=o.node;const i=s(r);const c={};for(let k=0;k<l.attributes.length;k++){const b=l.attributes[k];if(b.type!=="JSXAttribute"||!b.name)continue;const E=b.name.name;if(!a[E])continue;if(!b.value||b.value.type!=="StringLiteral")continue;if(b.value.start==null||b.value.end==null)continue;const T=`txt:${i}:${b.value.start}:${b.value.end}`;c[E]=T;b.value=e.jsxExpressionContainer(u(T,e.stringLiteral(b.value.value)))}if(Object.keys(c).length){l.attributes.push(e.jsxAttribute(e.jsxIdentifier("data-om-text-attrs"),e.stringLiteral(JSON.stringify(c))))}},JSXElement(o,r){const l=o.node.openingElement;const i=l&&l.name&&l.name.name;if(i==="__OmT")return;if(typeof i==="string"&&t[i])return;v(o,s(r),S(r))},JSXFragment(o,r){v(o,s(r),S(r))}}}})}}const g=f?["transform-react-jsx-source",d,p]:["transform-react-jsx-source",d];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((h,y)=>{const m=h.getAttribute("data-plugins")||"";const w=g.filter((R)=>m.indexOf(R)<0);if(w.length){h.setAttribute("data-plugins",m?`${m},${w.join(",")}`:w.join(","))}if(!h.hasAttribute("data-filename")){h.setAttribute("data-filename",h.getAttribute("src")||`inline-${y}`)}})});var A=window.parent;var U="not editable here — open the project in the Claude Design editor to save";var W=()=>Promise.resolve({persisted:false,noHost:true,reason:U});var H=W;var M="data/storage.json";var z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.match(/\/projects\/([^/]+)\/serve\//);if(d)return d[1];return n.hostname.split(".")[0]||""}catch{return location.hostname.split(".")[0]||""}};var Z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.indexOf("/serve/");if(d>=0)return n.origin+n.pathname.slice(0,d+"/serve/".length)+M}catch{}return"./"+M};var x=null;var N=()=>{if(!x){x=fetch(Z(),{cache:"no-store"}).then((n)=>{if(n.ok)return n.text();return n.status===404?"":null}).catch(()=>null).then((n)=>{if(n===null){x=null;return null}const d=new Map;if(!n)return d;let p;try{p=JSON.parse(n)}catch{console.warn("[omelette.storage] "+M+" is not valid JSON; treating the store as unreadable so a save cannot overwrite the "+"hand-edited bytes. Fix the JSON (or delete the file) to re-enable persistence.");x=null;return null}if(p===null||typeof p!=="object"||Array.isArray(p)){console.warn("[omelette.storage] "+M+" doesn't hold a JSON object; treating the store as unreadable so a save cannot "+"overwrite the hand-edited bytes. Make the top level a JSON object to re-enable persistence.");x=null;return null}const f=p;if("data"in f){const g=f.data;if(g===null||typeof g!=="object"||Array.isArray(g)){console.warn("[omelette.storage] "+M+' has a "data" field that is not a JSON object; treating the store as unreadable so a '+'save cannot overwrite the hand-edited bytes. Make "data" a JSON object to re-enable persistence.');x=null;return null}const h=f._meta;const y=h!==null&&typeof h==="object"?h.project:undefined;if(typeof y==="string"&&y!==""&&y!==z())return d;for(const m of Object.keys(g))d.set(m,g[m]);return d}for(const g of Object.keys(f)){if(g!=="_meta")d.set(g,f[g])}return d})}return x};var F=(n)=>H(M,JSON.stringify({_meta:{project:z(),version:1},data:Object.fromEntries(n)},null,2));var D=Promise.resolve();var $=(n)=>{const d=D.then(n);D=d.then(()=>{return},()=>{return});return d};var V=/sk-(?:ant-)?[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|xox[a-z]-[A-Za-z0-9][A-Za-z0-9-]{9,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/;var Y=/password|passwd|secret|api[_-]?key|access[_-]?token|auth[_-]?token|credential/i;var Q=(n,d,p)=>{if(V.test(d)||Y.test(n)&&typeof p==="string"&&p.length>=8){console.warn('[omelette.storage] the value for "'+n+'" looks like a credential. The storage file is a plaintext project file — visible to '+"everyone with project access and copied when the project is duplicated. Do not store secrets here.")}};var q={persisted:false,reason:"could not load the existing store — not overwriting it"};var X={persisted:false,reason:"stored value changed since a failed read — re-read this key before saving"};var P=new Set;var ee={get:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.get: key must be a string"))}return $(N).then((d)=>{if(d===null){P.add(n);return null}P.delete(n);if(!d.has(n))return null;const p=d.get(n);return p==null?null:JSON.parse(JSON.stringify(p))})},set:(n,d)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.set: key must be a string"))}let p;try{p=JSON.stringify(d)}catch(g){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable ("+String(g)+")"))}if(p===undefined){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable"))}Q(n,p,d);const f=JSON.parse(p);return $(()=>N().then((g)=>{if(g===null)return q;if(P.has(n)){if(g.has(n))return X;P.delete(n)}g.set(n,f);return F(g)}))},delete:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.delete: key must be a string"))}return $(()=>N().then((d)=>{if(d===null)return q;if(P.has(n)){if(d.has(n))return X;P.delete(n)}d.delete(n);return F(d)}))},keys:()=>$(N).then((n)=>n===null?[]:Array.from(n.keys()))};window.omelette={writeFile:(n,d)=>H(n,d).then((p)=>{if(!p.persisted&&!p.noHost){throw new Error(p.reason||"write failed")}}),storage:ee};if(A&&A!==window){const n=(e,t)=>{try{A.postMessage({__omelette_log:true,type:e,data:t},"*")}catch{}};["log","warn","error"].forEach((e)=>{const t=console[e];console[e]=(...a)=>{const u=a.map((s)=>{try{return typeof s==="object"?JSON.stringify(s):String(s)}catch{try{return String(s)}catch{return"[unstringifiable]"}}}).join(" ");n(e,u);t.apply(console,a)}});window.addEventListener("error",(e)=>{const t=e.target;if(t&&t!==window&&t.tagName){const a=t.src||t.href||"";n("resource_error",`${t.tagName} failed to load: ${a}`)}else{n("error",`${e.message||"Unknown error"} at ${e.filename||"?"}:${e.lineno||0}:${e.colno||0}`)}},true);window.addEventListener("unhandledrejection",(e)=>{const t=e.reason;const a=t instanceof Error?`${t.message} ${t.stack}`:String(t);n("error",`Unhandled rejection: ${a}`)});window.addEventListener("click",(e)=>{if(e.defaultPrevented||e.button!==0)return;if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const t=e.composedPath?e.composedPath():[];const a=["button","input","select","textarea","summary","label"];let u=null;for(const v of t){if(!(v instanceof Element))continue;if(v.localName==="a"){if(!(v instanceof HTMLAnchorElement))return;u=v;break}if(a.indexOf(v.localName)!==-1)return}if(!u)return;if(u.isContentEditable)return;const s=u.closest("[contenteditable]");if(s&&s.getAttribute("contenteditable")!=="false")return;const S=(u.getAttribute("target")||"_self").toLowerCase();if(S!=="_self"&&S!=="_top"&&S!=="_parent")return;let _;try{_=new URL(u.href)}catch{return}if(_.protocol!=="http:"&&_.protocol!=="https:")return;if(location.origin==="null")return;if(_.origin===location.origin)return;e.preventDefault();window.open(_.href,"_blank","noopener,noreferrer")});const d=()=>{try{A.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver(d).observe(document.documentElement);const p=()=>{d();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const e=()=>document.getElementById("root")||document.querySelector("body > div[id]");const t=e()?.firstElementChild??null;let a=0;const u=()=>{const s=e();if(s&&s.firstElementChild!==t||++a>30){d();return}setTimeout(u,100)};setTimeout(u,100)};if(document.readyState==="complete")p();else window.addEventListener("load",p);const f={};let g=0;const h=(e)=>new Promise((t,a)=>{if(!I.length){a(new Error("claude.complete: no parent origin"));return}const u=`c${++g}`;const s=()=>setTimeout(()=>{delete f[u];a(new Error(`claude.complete: no data for ${J/1000}s`))},J);const S=s();f[u]={resolve:t,reject:a,text:"",t:S,arm:s};try{for(const _ of I){A.postMessage({__om_api:true,id:u,body:e},_)}}catch(_){clearTimeout(S);delete f[u];a(_)}});const y=8;const m=async(e,t)=>{if(!Array.isArray(e.messages)){throw new Error("claude.complete: tools require a messages array")}const a=e.messages.slice();const u={...e,tools:e.tools.map((_)=>{if(_===null||typeof _!=="object")return _;const v={};for(const o of Object.keys(_)){if(typeof _[o]!=="function")v[o]=_[o]}return v})};const s=u.tool_choice;const S=s!=null&&(s.type==="any"||s.type==="tool")?{...u,tool_choice:s.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:s.disable_parallel_tool_use}:{type:"auto"}}:u;for(let _=0;_<y;_++){const v=await h({..._===0?u:S,messages:a});const o=v.message;const r=o&&Array.isArray(o.content)?o.content:null;const l=r?r.filter((c)=>c?.type==="tool_use"):[];if(o?.stop_reason!=="tool_use"||l.length===0){return v.text}const i=[];for(const c of l){const k=t.get(c.name);if(!k){i.push({type:"tool_result",tool_use_id:c.id,content:`no handler for tool "${c.name}"`,is_error:true});continue}try{const b=await k(c.input);const E=typeof b==="string"?b:O(b)??"";i.push({type:"tool_result",tool_use_id:c.id,content:E})}catch(b){i.push({type:"tool_result",tool_use_id:c.id,content:String(b?.message??b??"tool handler failed"),is_error:true})}}a.push({role:"assistant",content:r},{role:"user",content:i})}throw new Error(`claude.complete: exceeded ${y} tool turns`)};window.claude={complete(e){const t=e;if(t!==null&&typeof t==="object"&&Array.isArray(t.tools)&&t.tools.some((a)=>a!==null&&typeof a==="object"&&typeof a.run==="function")){const a=new Map;for(const u of t.tools){if(u!==null&&typeof u==="object"&&typeof u.run==="function"){a.set(String(u.name),u.run)}}return m(t,a)}return h(e).then((a)=>a.text)}};const w={};let R=0;H=(e,t)=>new Promise((a)=>{if(!I.length){a({persisted:false,noHost:true,reason:U});return}const u=`f${++R}`;const s=setTimeout(()=>{delete w[u];a({persisted:false,noHost:true,reason:U})},G);w[u]={settle:a,t:s};try{for(const S of I){A.postMessage({__om_file:true,id:u,op:"write",path:e,content:t},S)}}catch{clearTimeout(s);delete w[u];a({persisted:false,noHost:true,reason:U})}});const O=(e)=>{try{return JSON.stringify(e)}catch{return JSON.stringify(String(e))}};window.addEventListener("message",(e)=>{if(I.indexOf(e.origin)<0)return;if(e.source!==A)return;const t=e.data;if(!t)return;if(t.type==="omelette-preview-refresh"){if(typeof t.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(t.token))return;const s=Math.max(1,Math.floor((t.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+t.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+s;C();return}if(t.__om_file_r){const s=w[t.id];if(!s)return;clearTimeout(s.t);delete w[t.id];s.settle(t.ok?{persisted:true}:{persisted:false,reason:t.error||"write failed"});return}if(t.__om_api_r){const s=f[t.id];if(!s)return;if(t.error!=null){clearTimeout(s.t);delete f[t.id];s.reject(new Error(t.error));return}if(t.chunk!=null){clearTimeout(s.t);s.t=s.arm();s.text+=t.chunk;return}if(t.done){clearTimeout(s.t);delete f[t.id];s.resolve({text:t.text!=null?t.text:s.text,message:t.message});return}return}if(!t.__om_eval)return;const a=t;const u=(s)=>{e.source.postMessage({...s,__om_eval_r:1,id:a.id},e.origin)};try{const s=(0,eval)(a.code);if(s&&typeof s.then==="function"){s.then((S)=>u({ok:1,v:O(S)}),(S)=>u({ok:0,e:String(S)}))}else{u({ok:1,v:O(s)})}}catch(s){u({ok:0,e:String(s)})}})}})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F4F5F7; font-family: Archivo, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #0F7DC2; text-decoration: none; }
+  a:hover { color: #E4131F; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: #C9CFD6; border-radius: 8px; border: 3px solid transparent; background-clip: content-box; }
+  @keyframes rdpulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+</style>
+</helmet>
+
+<div data-om-scroll="shell" style="display:flex; flex-direction:column; height:100vh; overflow-x:auto; overflow-y:hidden; color:#131A21">
+
+  <sc-if value="{{ roleOwner }}" hint-placeholder-val="{{ true }}">
+  <div style="display:flex; flex:1; min-height:0; min-width:1360px">
+
+    <!-- SIDEBAR -->
+    <div style="width:236px; flex:none; background:#0E1620; display:flex; flex-direction:column; padding:18px 0">
+      <div style="padding:0 18px 20px; display:flex; flex-direction:column; gap:2px">
+        <div style="font-size:25.5px; font-weight:800; letter-spacing:-.5px; line-height:1"><span style="color:#E4131F">ROAD</span><span style="color:#2E9BE0">DOG</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.18em; color:#6B7480; text-transform:uppercase">Courier Ops · Wexford</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1px; padding:0 8px; flex:1; overflow-y:auto">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="10">
+          <div onClick="{{ item.onClick }}" style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:9px 11px; border-radius:7px; cursor:pointer; background:{{ item.bg }}; color:{{ item.fg }}" style-hover="background:#1A2632; color:#FFFFFF">
+            <span style="font-size:15.5px; font-weight:600; letter-spacing:-.1px">{{ item.label }}</span>
+            <sc-if value="{{ item.badge }}" hint-placeholder-val="{{ true }}">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600; background:#E4131F; color:#fff; padding:2px 6px; border-radius:20px">{{ item.badge }}</span>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="padding:14px 14px 0; margin-top:8px; border-top:1px solid #1A2632; display:flex; flex-direction:column; gap:12px">
+        <div style="display:flex; align-items:center; gap:10px; padding:0 4px">
+          <div style="width:30px; height:30px; border-radius:50%; background:#E4131F; color:#fff; display:grid; place-items:center; font-size:14px; font-weight:700; flex:none">PB</div>
+          <div style="display:flex; flex-direction:column">
+            <span style="font-size:14.5px; font-weight:600; color:#fff">Paul Byrne</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#6B7480; letter-spacing:.08em">OWNER</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; color:#6B7480; padding:0 4px">VIEW AS</span>
+          <div style="display:flex; gap:3px; background:#151F2A; padding:4px; border-radius:9px">
+            <sc-for list="{{ roles }}" as="r" hint-placeholder-count="3">
+              <div onClick="{{ r.onClick }}" style="flex:1; text-align:center; padding:7px 4px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:700; background:{{ r.bg }}; color:{{ r.fg }}">{{ r.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div style="flex:1; min-width:0; display:flex; flex-direction:column">
+      <div style="height:62px; flex:none; background:#fff; border-bottom:1px solid #E3E6EA; display:flex; align-items:center; gap:18px; padding:0 22px; overflow:hidden">
+        <div style="display:flex; flex-direction:column; flex:none">
+          <span style="font-size:19px; font-weight:700; letter-spacing:-.3px; white-space:nowrap">{{ screenTitle }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#6B7480; letter-spacing:.06em">TUE 01 SEP 2026 · 14:06</span>
+        </div>
+        <div style="flex:1"></div>
+        <div style="display:flex; align-items:center; gap:8px; background:#F4F5F7; border:1px solid #E3E6EA; border-radius:8px; padding:8px 12px; width:260px; min-width:0; flex-shrink:1; overflow:hidden">
+          <span style="color:#9AA2AC; font-size:15px">⌕</span>
+          <span style="font-size:15px; color:#9AA2AC; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Search ref, customer, driver…</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; background:#FEF2F2; border:1px solid #F7CACC; flex:none">
+          <span style="width:7px; height:7px; border-radius:50%; background:#E4131F; animation:rdpulse 1.6s infinite; flex:none"></span>
+          <span style="font-size:14.5px; font-weight:600; color:#B0121C; white-space:nowrap">{{ alertCount }} need attention</span>
+        </div>
+        <div onClick="{{ newJob }}" style="background:#E4131F; color:#fff; font-size:15px; font-weight:700; padding:10px 16px; border-radius:8px; cursor:pointer; flex:none; white-space:nowrap" style-hover="background:#C2101B">+ New job</div>
+      </div>
+
+      <div style="flex:1; min-height:0; overflow-y:auto; padding:20px 22px 84px">
+
+        <!-- ===== DISPATCH ===== -->
+        <sc-if value="{{ isDispatch }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-direction:column; gap:18px">
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:10px; display:flex">
+            <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="5">
+              <div style="flex:1; padding:13px 18px; display:flex; flex-direction:column; gap:3px; border-left:{{ k.divider }}">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.13em; color:#9AA2AC; text-transform:uppercase">{{ k.label }}</span>
+                <span style="font-size:25.5px; font-weight:700; letter-spacing:-.7px; color:{{ k.color }}">{{ k.value }}</span>
+                <span style="font-size:12.5px; color:#9AA2AC">{{ k.sub }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:grid; grid-template-columns:300px 1fr; gap:16px; align-items:start">
+            <!-- unassigned queue -->
+            <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+              <div style="padding:13px 15px; border-bottom:1px solid #E3E6EA; display:flex; align-items:center; justify-content:space-between; background:#FEF2F2">
+                <span style="font-size:15.5px; font-weight:700; color:#B0121C">Unassigned queue</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:600; color:#B0121C">{{ unassignedCount }}</span>
+              </div>
+              <div style="display:flex; flex-direction:column; padding:10px; gap:8px; max-height:560px; overflow-y:auto">
+                <sc-for list="{{ unassigned }}" as="j" hint-placeholder-count="4">
+                  <div onClick="{{ j.onClick }}" style="border-left:2px solid #E4131F; padding:9px 0 9px 11px; cursor:pointer; display:flex; flex-direction:column; gap:3px" style-hover="background:#FAFBFC">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; gap:8px">
+                      <span style="font-size:15px; font-weight:700; letter-spacing:-.2px">{{ j.customer }}</span>
+                      <span style="font-size:12.5px; font-weight:600; color:#B0121C; white-space:nowrap">{{ j.window }}</span>
+                    </div>
+                    <span style="font-size:13px; color:#6B7480">{{ j.route }}</span>
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; gap:8px">
+                      <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#9AA2AC">{{ j.ref }}</span>
+                      <sc-if value="{{ showFinancials }}" hint-placeholder-val="{{ true }}">
+                        <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">{{ j.price }}</span>
+                      </sc-if>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <!-- board -->
+            <div style="display:flex; flex-direction:column; gap:12px">
+              <div style="display:flex; align-items:center; gap:10px">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.13em; color:#6B7480; text-transform:uppercase">{{ boardLabel }}</span>
+                <div style="flex:1; height:1px; background:#E3E6EA"></div>
+                <div style="display:flex; gap:12px">
+                  <sc-for list="{{ statusLegend }}" as="l" hint-placeholder-count="4">
+                    <div style="display:flex; align-items:center; gap:5px">
+                      <span style="width:7px; height:7px; border-radius:50%; background:{{ l.color }}"></span>
+                      <span style="font-size:12.5px; color:#6B7480">{{ l.label }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+                <div onClick="{{ toggleBoard }}" style="font-size:14px; font-weight:600; color:#0F7DC2; cursor:pointer; padding:6px 10px; border:1px solid #CBE3F3; border-radius:7px; background:#F2F9FE">Switch view</div>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(268px,1fr)); gap:12px; align-items:start">
+                <sc-for list="{{ lanes }}" as="lane" hint-placeholder-count="8">
+                  <div style="background:#fff; border:1px solid #E3E6EA; border-radius:10px; overflow:hidden">
+                    <div style="padding:10px 14px; display:flex; align-items:baseline; justify-content:space-between; gap:8px; background:{{ lane.headBg }}">
+                      <span style="font-size:14.5px; font-weight:700; letter-spacing:-.1px; color:{{ lane.headFg }}">{{ lane.title }}</span>
+                      <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#9AA2AC">{{ lane.count }}</span>
+                    </div>
+                    <div style="display:flex; flex-direction:column">
+                      <sc-for list="{{ lane.jobs }}" as="j" hint-placeholder-count="2">
+                        <div onClick="{{ j.onClick }}" style="padding:10px 14px; border-top:1px solid #F1F3F5; cursor:pointer; display:flex; align-items:flex-start; gap:9px" style-hover="background:#FAFBFC">
+                          <span style="width:7px; height:7px; border-radius:50%; background:{{ j.color }}; flex:none; margin-top:5px"></span>
+                          <div style="display:flex; flex-direction:column; gap:2px; min-width:0">
+                            <span style="font-size:14.5px; font-weight:600">{{ j.customer }}</span>
+                            <span style="font-size:12.5px; color:#9AA2AC">{{ j.route }}</span>
+                          </div>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ hasIdleVans }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; align-items:baseline; gap:12px; padding:11px 14px; background:#fff; border:1px dashed #E3E6EA; border-radius:10px">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.13em; color:#9AA2AC; flex:none">FREE CAPACITY</span>
+                <span style="font-size:14px; color:#6B7480">{{ idleVans }}</span>
+              </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== LIVE MAP ===== -->
+        <sc-if value="{{ isMap }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:1fr 320px; gap:16px; height:calc(100vh - 142px)">
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden; position:relative; display:grid; place-items:center; background-image:repeating-linear-gradient(135deg,#EDEFF2 0 12px,#F6F7F9 12px 24px)">
+            <div style="text-align:center; display:flex; flex-direction:column; gap:8px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.16em; color:#7C848E">LIVE FLEET MAP</span>
+              <span style="font-size:14.5px; color:#9AA2AC; max-width:320px">Map provider embed (Mapbox / Google Maps) with van GPS pings every 30s</span>
+            </div>
+            <div style="position:absolute; left:18px; top:18px; background:#fff; border:1px solid #E3E6EA; border-radius:8px; padding:9px 12px; display:flex; gap:14px">
+              <sc-for list="{{ mapLegend }}" as="l" hint-placeholder-count="3">
+                <div style="display:flex; align-items:center; gap:6px">
+                  <span style="width:8px; height:8px; border-radius:50%; background:{{ l.color }}"></span>
+                  <span style="font-size:13px; font-weight:600; color:#3C444D">{{ l.label }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; display:flex; flex-direction:column; overflow:hidden">
+            <div style="padding:13px 15px; border-bottom:1px solid #E3E6EA; font-size:15.5px; font-weight:700">Vans on road</div>
+            <div style="flex:1; overflow-y:auto">
+              <sc-for list="{{ vanTracks }}" as="v" hint-placeholder-count="6">
+                <div style="padding:12px 15px; border-bottom:1px solid #EEF0F3; display:flex; flex-direction:column; gap:4px">
+                  <div style="display:flex; justify-content:space-between; align-items:center">
+                    <span style="font-size:15px; font-weight:700">{{ v.van }} · {{ v.driver }}</span>
+                    <span style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:{{ v.color }}">{{ v.state }}</span>
+                  </div>
+                  <span style="font-size:13px; color:#6B7480">{{ v.at }}</span>
+                  <div style="display:flex; gap:12px; margin-top:2px">
+                    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#3C444D">{{ v.speed }}</span>
+                    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#3C444D">{{ v.drops }} drops left</span>
+                    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#3C444D">ETA {{ v.eta }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== JOBS TABLE ===== -->
+        <sc-if value="{{ isJobs }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+          <div style="display:flex; align-items:center; gap:8px; padding:12px 15px; border-bottom:1px solid #E3E6EA">
+            <sc-for list="{{ jobFilters }}" as="f" hint-placeholder-count="6">
+              <div onClick="{{ f.onClick }}" style="font-size:14px; font-weight:600; padding:6px 11px; border-radius:20px; cursor:pointer; background:{{ f.bg }}; color:{{ f.fg }}">{{ f.label }}</div>
+            </sc-for>
+          </div>
+          <div style="display:grid; grid-template-columns:96px 1.3fr 1.6fr 1fr 96px 88px 84px; gap:0; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.11em; color:#6B7480; text-transform:uppercase; padding:9px 15px; border-bottom:1px solid #E3E6EA; background:#FAFBFC">
+            <span>Ref</span><span>Customer</span><span>Route</span><span>Service</span><span>Van</span><span>Status</span><span style="text-align:right">Value</span>
+          </div>
+          <sc-for list="{{ filteredJobs }}" as="j" hint-placeholder-count="10">
+            <div onClick="{{ j.onClick }}" style="display:grid; grid-template-columns:96px 1.3fr 1.6fr 1fr 96px 88px 84px; align-items:center; padding:11px 15px; border-bottom:1px solid #EEF0F3; cursor:pointer; font-size:14.5px" style-hover="background:#FAFBFC">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:600; color:#0F7DC2">{{ j.ref }}</span>
+              <span style="font-weight:600">{{ j.customer }}</span>
+              <span style="color:#3C444D">{{ j.route }}</span>
+              <span style="color:#6B7480">{{ j.service }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px">{{ j.vanLabel }}</span>
+              <span style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:{{ j.color }}">{{ j.status }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:right">{{ j.priceCell }}</span>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <!-- ===== CUSTOMERS & PRICING ===== -->
+        <sc-if value="{{ isCustomers }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:1.15fr 1fr; gap:16px; align-items:start">
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+            <div style="padding:13px 15px; border-bottom:1px solid #E3E6EA; display:flex; justify-content:space-between; align-items:center">
+              <span style="font-size:15.5px; font-weight:700">Account customers</span>
+              <span style="font-size:14px; font-weight:600; color:#0F7DC2; cursor:pointer">+ Add account</span>
+            </div>
+            <sc-for list="{{ customers }}" as="c" hint-placeholder-count="6">
+              <div onClick="{{ c.onClick }}" style="padding:13px 15px; border-bottom:1px solid #EEF0F3; display:flex; flex-direction:column; gap:6px; cursor:pointer" style-hover="background:#FAFBFC">
+                <div style="display:flex; justify-content:space-between; align-items:center">
+                  <span style="font-size:15.5px; font-weight:700; letter-spacing:-.2px">{{ c.name }}</span>
+                  <span style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:3px 8px; border-radius:20px; background:{{ c.tagBg }}; color:{{ c.tagFg }}">{{ c.terms }}</span>
+                </div>
+                <span style="font-size:13px; color:#6B7480">{{ c.contact }} · {{ c.town }}</span>
+                <div style="display:flex; gap:16px; margin-top:2px">
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#3C444D">{{ c.rate }}</span>
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#3C444D">{{ c.mtd }} MTD</span>
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:{{ c.owedColor }}">{{ c.owed }} outstanding</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+            <div style="padding:13px 15px; border-bottom:1px solid #E3E6EA; display:flex; flex-direction:column; gap:2px">
+              <span style="font-size:15.5px; font-weight:700">Zone &amp; distance rate card</span>
+              <span style="font-size:13px; color:#6B7480">Base rate from Wexford depot · surcharges applied automatically</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.4fr 70px 1fr 1fr 1fr; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#6B7480; text-transform:uppercase; padding:9px 15px; background:#FAFBFC; border-bottom:1px solid #E3E6EA">
+              <span>Zone</span><span>KM</span><span>Small van</span><span>Transit</span><span>Pallet</span>
+            </div>
+            <sc-for list="{{ zones }}" as="z" hint-placeholder-count="8">
+              <div style="display:grid; grid-template-columns:1.4fr 70px 1fr 1fr 1fr; align-items:center; padding:10px 15px; border-bottom:1px solid #EEF0F3; font-size:14.5px">
+                <span style="font-weight:600">{{ z.zone }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">{{ z.km }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:13px">{{ z.small }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:13px">{{ z.transit }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:13px">{{ z.pallet }}</span>
+              </div>
+            </sc-for>
+            <div style="padding:12px 15px; display:flex; flex-wrap:wrap; gap:8px">
+              <sc-for list="{{ surcharges }}" as="s" hint-placeholder-count="4">
+                <span style="font-size:13px; font-weight:600; background:#F4F5F7; border:1px solid #E3E6EA; padding:5px 9px; border-radius:6px; color:#3C444D">{{ s }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== FLEET ===== -->
+        <sc-if value="{{ isFleet }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:16px">
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px">
+            <sc-for list="{{ fleetStats }}" as="k" hint-placeholder-count="4">
+              <div style="background:#fff; border:1px solid #E3E6EA; border-radius:10px; padding:14px 15px; display:flex; flex-direction:column; gap:5px">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.13em; color:#6B7480; text-transform:uppercase">{{ k.label }}</span>
+                <span style="font-size:27.5px; font-weight:800; letter-spacing:-.8px; color:{{ k.color }}">{{ k.value }}</span>
+                <span style="font-size:13px; color:#6B7480">{{ k.sub }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+            <div style="display:grid; grid-template-columns:88px 1.1fr 1fr 108px 108px 108px 1fr; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#6B7480; text-transform:uppercase; padding:10px 15px; background:#FAFBFC; border-bottom:1px solid #E3E6EA">
+              <span>Van</span><span>Reg / model</span><span>Assigned driver</span><span>Motor tax</span><span>CVRT</span><span>Service due</span><span>Status</span>
+            </div>
+            <sc-for list="{{ fleet }}" as="v" hint-placeholder-count="10">
+              <div onClick="{{ v.onClick }}" style="display:grid; grid-template-columns:88px 1.1fr 1fr 108px 108px 108px 1fr; align-items:center; padding:11px 15px; border-bottom:1px solid #EEF0F3; font-size:14.5px; cursor:pointer" style-hover="background:#FAFBFC">
+                <span style="font-weight:800; letter-spacing:-.2px">{{ v.van }}</span>
+                <span style="color:#3C444D"><span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px">{{ v.reg }}</span> · {{ v.model }}</span>
+                <span style="font-weight:600">{{ v.driver }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:{{ v.taxColor }}">{{ v.tax }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:{{ v.cvrtColor }}">{{ v.cvrt }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:{{ v.serviceColor }}">{{ v.service }}</span>
+                <span style="font-size:13px; font-weight:600; color:{{ v.statusColor }}">{{ v.status }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== DRIVERS & PAYROLL ===== -->
+        <sc-if value="{{ isDrivers }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+          <div style="padding:13px 15px; border-bottom:1px solid #E3E6EA; display:flex; justify-content:space-between; align-items:center">
+            <div style="display:flex; flex-direction:column; gap:2px">
+              <span style="font-size:15.5px; font-weight:700">Week 36 · 31 Aug – 06 Sep</span>
+              <span style="font-size:13px; color:#6B7480">Hours pulled from driver app shift clock · expenses from receipt uploads</span>
+            </div>
+            <sc-if value="{{ showFinancials }}" hint-placeholder-val="{{ true }}">
+              <div style="background:#0F7DC2; color:#fff; font-size:14.5px; font-weight:700; padding:9px 14px; border-radius:8px; cursor:pointer">Approve payroll · {{ payrollTotal }}</div>
+            </sc-if>
+          </div>
+          <div style="display:grid; grid-template-columns:1.2fr 84px 92px 92px 92px 96px 100px 1fr; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#6B7480; text-transform:uppercase; padding:10px 15px; background:#FAFBFC; border-bottom:1px solid #E3E6EA">
+            <span>Driver</span><span>Van</span><span>Hours</span><span>Drops</span><span>On time</span><span>Expenses</span><span>Pay due</span><span>Compliance</span>
+          </div>
+          <sc-for list="{{ drivers }}" as="d" hint-placeholder-count="10">
+            <div style="display:grid; grid-template-columns:1.2fr 84px 92px 92px 92px 96px 100px 1fr; align-items:center; padding:11px 15px; border-bottom:1px solid #EEF0F3; font-size:14.5px">
+              <div style="display:flex; align-items:center; gap:9px">
+                <span style="width:26px; height:26px; border-radius:50%; background:#EEF0F3; display:grid; place-items:center; font-size:12px; font-weight:700; color:#3C444D">{{ d.initials }}</span>
+                <span style="font-weight:600">{{ d.name }}</span>
+              </div>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px">{{ d.van }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px">{{ d.hours }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px">{{ d.drops }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:{{ d.otColor }}">{{ d.onTime }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px">{{ d.expenses }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600">{{ d.pay }}</span>
+              <span style="font-size:13px; font-weight:600; color:{{ d.compColor }}">{{ d.compliance }}</span>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <!-- ===== INVOICING ===== -->
+        <sc-if value="{{ isInvoicing }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:16px">
+          <div style="background:#0E1620; border-radius:12px; padding:18px 20px; display:flex; align-items:center; gap:26px">
+            <div style="display:flex; flex-direction:column; gap:4px; flex:1">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; color:#8A929C; text-transform:uppercase">Ready to bill</span>
+              <span style="font-size:30px; font-weight:800; letter-spacing:-1px; color:#fff">{{ billReady }}</span>
+              <span style="font-size:14px; color:#8A929C">{{ billReadyJobs }} completed jobs with POD, not yet invoiced</span>
+            </div>
+            <sc-for list="{{ billStats }}" as="b" hint-placeholder-count="3">
+              <div style="display:flex; flex-direction:column; gap:4px; padding-left:26px; border-left:1px solid #1A2632">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; color:#8A929C; text-transform:uppercase">{{ b.label }}</span>
+                <span style="font-size:23px; font-weight:700; color:{{ b.color }}">{{ b.value }}</span>
+              </div>
+            </sc-for>
+            <div onClick="{{ runBilling }}" style="background:#E4131F; color:#fff; font-size:15px; font-weight:700; padding:12px 18px; border-radius:8px; cursor:pointer">Run weekly billing</div>
+          </div>
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+            <div style="display:grid; grid-template-columns:110px 1.4fr 110px 110px 100px 1fr; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#6B7480; text-transform:uppercase; padding:10px 15px; background:#FAFBFC; border-bottom:1px solid #E3E6EA">
+              <span>Invoice</span><span>Customer</span><span>Issued</span><span>Due</span><span>Amount</span><span>Status</span>
+            </div>
+            <sc-for list="{{ invoices }}" as="i" hint-placeholder-count="8">
+              <div onClick="{{ i.onClick }}" style="display:grid; grid-template-columns:110px 1.4fr 110px 110px 100px 1fr; align-items:center; padding:11px 15px; border-bottom:1px solid #EEF0F3; font-size:14.5px; cursor:pointer" style-hover="background:#FAFBFC">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:600; color:#0F7DC2">{{ i.no }}</span>
+                <span style="font-weight:600">{{ i.customer }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">{{ i.issued }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">{{ i.due }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600">{{ i.amount }}</span>
+                <span style="font-size:13px; font-weight:700; color:{{ i.color }}">{{ i.status }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== REPORTS ===== -->
+        <sc-if value="{{ isReports }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:16px">
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; padding:18px 20px">
+            <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:16px">
+              <div style="display:flex; flex-direction:column; gap:3px">
+                <span style="font-size:16px; font-weight:700">Jobs per day · last 14 days</span>
+                <span style="font-size:13px; color:#6B7480">Red bar = jobs delivered late or failed</span>
+              </div>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">avg 41/day</span>
+            </div>
+            <div style="display:flex; align-items:flex-end; gap:10px; height:180px">
+              <sc-for list="{{ chart }}" as="c" hint-placeholder-count="14">
+                <div style="flex:1; display:flex; flex-direction:column; justify-content:flex-end; gap:4px; height:100%">
+                  <div style="display:flex; flex-direction:column; justify-content:flex-end; gap:2px; height:{{ c.h }}">
+                    <div style="height:{{ c.lateH }}; background:#E4131F; border-radius:3px 3px 0 0"></div>
+                    <div style="flex:1; background:#0F7DC2; border-radius:0 0 3px 3px"></div>
+                  </div>
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#9AA2AC; text-align:center">{{ c.day }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:start">
+            <sc-for list="{{ reportCards }}" as="r" hint-placeholder-count="3">
+              <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+                <div style="padding:13px 15px; border-bottom:1px solid #E3E6EA; font-size:15.5px; font-weight:700">{{ r.title }}</div>
+                <sc-for list="{{ r.rows }}" as="row" hint-placeholder-count="5">
+                  <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 15px; border-bottom:1px solid #EEF0F3">
+                    <span style="font-size:14.5px; color:#3C444D">{{ row.k }}</span>
+                    <span style="font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:600; color:{{ row.color }}">{{ row.v }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== POD ARCHIVE ===== -->
+        <sc-if value="{{ isPod }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(238px,1fr)); gap:14px">
+          <sc-for list="{{ pods }}" as="p" hint-placeholder-count="8">
+            <div onClick="{{ p.onClick }}" style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; cursor:pointer" style-hover="border-color:#0F7DC2">
+              <div style="height:132px; background-image:repeating-linear-gradient(135deg,#EDEFF2 0 10px,#F6F7F9 10px 20px); display:grid; place-items:center">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.13em; color:#8A929C">{{ p.kind }}</span>
+              </div>
+              <div style="padding:12px 13px; display:flex; flex-direction:column; gap:5px">
+                <div style="display:flex; justify-content:space-between; align-items:center">
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:600; color:#0F7DC2">{{ p.ref }}</span>
+                  <span style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:{{ p.color }}">{{ p.state }}</span>
+                </div>
+                <span style="font-size:14.5px; font-weight:700">{{ p.customer }}</span>
+                <span style="font-size:13px; color:#6B7480">Signed {{ p.signedBy }} · {{ p.time }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#9AA2AC">{{ p.van }} · GPS verified</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <!-- ===== ALERTS / SETTINGS ===== -->
+        <sc-if value="{{ isAlerts }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start">
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+            <div style="padding:13px 15px; border-bottom:1px solid #E3E6EA; font-size:15.5px; font-weight:700">Automated customer notifications</div>
+            <sc-for list="{{ automations }}" as="a" hint-placeholder-count="6">
+              <div onClick="{{ a.onClick }}" style="padding:13px 15px; border-bottom:1px solid #EEF0F3; display:flex; align-items:center; gap:12px; cursor:pointer" style-hover="background:#FAFBFC">
+                <div style="width:38px; height:22px; border-radius:20px; flex:none; background:{{ a.knobBg }}; position:relative; cursor:pointer">
+                  <span style="position:absolute; top:3px; left:{{ a.knobX }}; width:16px; height:16px; border-radius:50%; background:#fff"></span>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:2px; flex:1">
+                  <span style="font-size:15px; font-weight:600">{{ a.name }}</span>
+                  <span style="font-size:13px; color:#6B7480">{{ a.detail }}</span>
+                </div>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.08em; color:#9AA2AC">{{ a.channel }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+            <div style="padding:13px 15px; border-bottom:1px solid #E3E6EA; font-size:15.5px; font-weight:700">Exceptions today</div>
+            <sc-for list="{{ exceptions }}" as="e" hint-placeholder-count="5">
+              <div onClick="{{ e.onClick }}" style="padding:13px 15px; border-bottom:1px solid #EEF0F3; border-left:3px solid {{ e.color }}; display:flex; flex-direction:column; gap:4px; cursor:pointer" style-hover="background:#FAFBFC">
+                <div style="display:flex; justify-content:space-between">
+                  <span style="font-size:15px; font-weight:700">{{ e.title }}</span>
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#9AA2AC">{{ e.time }}</span>
+                </div>
+                <span style="font-size:13px; color:#6B7480">{{ e.detail }}</span>
+                <span style="font-size:13px; font-weight:600; color:#0F7DC2; cursor:pointer">{{ e.action }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== SETTINGS ===== -->
+        <sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:16px">
+          <div style="display:flex; gap:8px; flex-wrap:wrap">
+            <sc-for list="{{ settingsTabs }}" as="t" hint-placeholder-count="5">
+              <div onClick="{{ t.onClick }}" style="font-size:14.5px; font-weight:600; padding:8px 14px; border-radius:20px; cursor:pointer; background:{{ t.bg }}; color:{{ t.fg }}">{{ t.label }}</div>
+            </sc-for>
+          </div>
+          <div style="font-size:15px; color:#6B7480; max-width:640px">{{ settingsPanel.intro }}</div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; align-items:start">
+            <sc-for list="{{ settingsPanel.groups }}" as="g" hint-placeholder-count="3">
+              <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+                <div style="padding:13px 15px; border-bottom:1px solid #E3E6EA; font-size:15.5px; font-weight:700">{{ g.title }}</div>
+                <sc-for list="{{ g.rows }}" as="row" hint-placeholder-count="5">
+                  <div style="display:grid; grid-template-columns:130px 1fr; gap:14px; align-items:baseline; padding:11px 15px; border-bottom:1px solid #EEF0F3">
+                    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#9AA2AC; text-transform:uppercase">{{ row.k }}</span>
+                    <span style="font-size:14.5px; font-weight:500; color:#131A21">{{ row.v }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+      </div>
+    </div>
+
+    <!-- JOB DRAWER -->
+    <sc-if value="{{ hasSelected }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; top:0; right:0; bottom:0; width:376px; z-index:60; background:#fff; border-left:1px solid #E3E6EA; box-shadow:-14px 0 34px rgba(14,22,32,.14); display:flex; flex-direction:column; overflow-y:auto">
+      <div style="padding:16px 18px; border-bottom:1px solid #E3E6EA; display:flex; align-items:flex-start; gap:12px">
+        <div style="display:flex; flex-direction:column; gap:4px; flex:1">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:600; color:#0F7DC2">{{ sel.ref }}</span>
+          <span style="font-size:19.5px; font-weight:800; letter-spacing:-.4px">{{ sel.customer }}</span>
+          <span style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:{{ sel.color }}">{{ sel.status }}</span>
+        </div>
+        <div onClick="{{ closeDrawer }}" style="width:28px; height:28px; border-radius:7px; background:#F4F5F7; display:grid; place-items:center; cursor:pointer; font-size:16px; color:#6B7480">✕</div>
+      </div>
+      <div style="padding:16px 18px; display:flex; flex-direction:column; gap:14px; border-bottom:1px solid #E3E6EA">
+        <sc-for list="{{ sel.legs }}" as="leg" hint-placeholder-count="2">
+          <div style="display:flex; gap:11px">
+            <div style="display:flex; flex-direction:column; align-items:center; padding-top:4px">
+              <span style="width:9px; height:9px; border-radius:50%; background:{{ leg.dot }}"></span>
+              <span style="flex:1; width:1px; background:#E3E6EA; min-height:22px"></span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:2px; flex:1">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#9AA2AC">{{ leg.kind }}</span>
+              <span style="font-size:15px; font-weight:600">{{ leg.name }}</span>
+              <span style="font-size:13px; color:#6B7480">{{ leg.addr }}</span>
+              <span style="font-size:13px; color:#3C444D">{{ leg.time }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="padding:16px 18px; display:grid; grid-template-columns:1fr 1fr; gap:13px; border-bottom:1px solid #E3E6EA">
+        <sc-for list="{{ sel.facts }}" as="f" hint-placeholder-count="6">
+          <div style="display:flex; flex-direction:column; gap:3px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#9AA2AC; text-transform:uppercase">{{ f.k }}</span>
+            <span style="font-size:15px; font-weight:600">{{ f.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="padding:16px 18px; display:flex; flex-direction:column; gap:10px; border-bottom:1px solid #E3E6EA">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#9AA2AC; text-transform:uppercase">Assign to van</span>
+        <div style="display:flex; flex-wrap:wrap; gap:7px">
+          <sc-for list="{{ assignVans }}" as="v" hint-placeholder-count="10">
+            <div onClick="{{ v.onClick }}" style="padding:8px 11px; border-radius:7px; border:1px solid {{ v.border }}; background:{{ v.bg }}; color:{{ v.fg }}; cursor:pointer; display:flex; flex-direction:column; gap:1px; min-width:78px" style-hover="border-color:#0F7DC2">
+              <span style="font-size:14.5px; font-weight:700">{{ v.van }}</span>
+              <span style="font-size:11.5px; color:{{ v.subFg }}">{{ v.load }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="padding:16px 18px 80px; display:flex; flex-direction:column; gap:8px">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#9AA2AC; text-transform:uppercase">Activity</span>
+        <sc-for list="{{ sel.activity }}" as="a" hint-placeholder-count="4">
+          <div style="display:flex; gap:10px; align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#9AA2AC; flex:none; width:42px">{{ a.t }}</span>
+            <span style="font-size:14px; color:#3C444D">{{ a.text }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- GENERIC DETAIL DRAWER -->
+    <sc-if value="{{ hasDetail }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; top:0; right:0; bottom:0; width:376px; z-index:60; background:#fff; border-left:1px solid #E3E6EA; box-shadow:-14px 0 34px rgba(14,22,32,.14); display:flex; flex-direction:column; overflow-y:auto">
+      <div style="padding:16px 18px 80px; display:flex; flex-direction:column; gap:18px">
+        <div style="display:flex; align-items:flex-start; gap:12px">
+          <div style="display:flex; flex-direction:column; gap:5px; flex:1; min-width:0">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.13em; color:#9AA2AC">{{ detail.eyebrow }}</span>
+            <span style="font-size:20.5px; font-weight:800; letter-spacing:-.4px">{{ detail.title }}</span>
+            <span style="font-size:13px; font-weight:700; color:{{ detail.badgeColor }}">{{ detail.badge }}</span>
+          </div>
+          <div onClick="{{ closeDetail }}" style="width:28px; height:28px; border-radius:7px; background:#F4F5F7; display:grid; place-items:center; cursor:pointer; font-size:16px; color:#6B7480; flex:none">✕</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:13px; padding-top:14px; border-top:1px solid #EEF0F3">
+          <sc-for list="{{ detail.facts }}" as="f" hint-placeholder-count="6">
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#9AA2AC; text-transform:uppercase">{{ f.k }}</span>
+              <span style="font-size:15px; font-weight:600">{{ f.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <sc-for list="{{ detail.sections }}" as="sec" hint-placeholder-count="2">
+          <div style="display:flex; flex-direction:column; gap:2px; padding-top:14px; border-top:1px solid #EEF0F3">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#9AA2AC; text-transform:uppercase; margin-bottom:6px">{{ sec.title }}</span>
+            <sc-for list="{{ sec.rows }}" as="row" hint-placeholder-count="4">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:7px 0; border-bottom:1px solid #F4F5F7">
+                <span style="font-size:14.5px; color:#3C444D">{{ row.k }}</span>
+                <span style="font-size:14px; font-weight:600; text-align:right">{{ row.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+        <div style="display:flex; gap:8px; padding-top:6px">
+          <sc-for list="{{ detail.actions }}" as="a" hint-placeholder-count="2">
+            <div style="flex:1; text-align:center; font-size:14.5px; font-weight:700; padding:11px; border-radius:8px; cursor:pointer; background:{{ a.bg }}; color:{{ a.fg }}">{{ a.label }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+  </div>
+  </sc-if>
+
+  <!-- NEW JOB MODAL -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed; inset:0; z-index:80; background:rgba(14,22,32,.55); display:flex; align-items:center; justify-content:center; padding:32px">
+    <div style="width:720px; max-height:100%; overflow-y:auto; background:#fff; border-radius:14px; box-shadow:0 24px 60px rgba(14,22,32,.35)">
+      <div style="padding:18px 22px; border-bottom:1px solid #E3E6EA; display:flex; align-items:flex-start; gap:14px">
+        <div style="display:flex; flex-direction:column; gap:3px; flex:1">
+          <span style="font-size:20.5px; font-weight:800; letter-spacing:-.4px">New job</span>
+          <span style="font-size:14.5px; color:#6B7480">Phone or counter booking · priced from the zone card as you type</span>
+        </div>
+        <div onClick="{{ closeModal }}" style="width:30px; height:30px; border-radius:8px; background:#F4F5F7; display:grid; place-items:center; cursor:pointer; font-size:17.5px; color:#6B7480">✕</div>
+      </div>
+      <div style="padding:20px 22px; display:flex; flex-direction:column; gap:18px">
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#6B7480; text-transform:uppercase">Service</span>
+          <div style="display:flex; flex-wrap:wrap; gap:8px">
+            <sc-for list="{{ njServices }}" as="s" hint-placeholder-count="6">
+              <div onClick="{{ s.onClick }}" style="padding:9px 13px; border-radius:8px; border:1px solid {{ s.border }}; background:{{ s.bg }}; color:{{ s.fg }}; font-size:14.5px; font-weight:700; cursor:pointer">{{ s.name }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+          <sc-for list="{{ njFields }}" as="f" hint-placeholder-count="7">
+            <div style="display:flex; flex-direction:column; gap:6px; grid-column:{{ f.span }}">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#6B7480; text-transform:uppercase">{{ f.label }}</span>
+              <div style="border:1px solid #E3E6EA; border-radius:8px; padding:11px 12px; font-size:15px; background:#FCFCFD">{{ f.value }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#6B7480; text-transform:uppercase">Assign now (optional)</span>
+          <div style="display:flex; flex-wrap:wrap; gap:7px">
+            <sc-for list="{{ njVans }}" as="v" hint-placeholder-count="10">
+              <div onClick="{{ v.onClick }}" style="padding:8px 11px; border-radius:7px; border:1px solid {{ v.border }}; background:{{ v.bg }}; color:{{ v.fg }}; cursor:pointer; display:flex; flex-direction:column; gap:1px; min-width:76px">
+                <span style="font-size:14.5px; font-weight:700">{{ v.van }}</span>
+                <span style="font-size:11.5px; color:{{ v.subFg }}">{{ v.driver }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#F2F9FE; border:1px solid #CBE3F3; border-radius:10px; padding:15px 17px">
+          <div style="display:flex; flex-direction:column; gap:3px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#0F7DC2; text-transform:uppercase">Price</span>
+            <span style="font-size:27.5px; font-weight:800; letter-spacing:-.8px; color:#0B5D91">{{ njPrice }}</span>
+            <span style="font-size:13px; color:#3C7A9E">{{ njBasis }}</span>
+          </div>
+          <div onClick="{{ createJob }}" style="background:#E4131F; color:#fff; font-size:15.5px; font-weight:700; padding:13px 20px; border-radius:8px; cursor:pointer" style-hover="background:#C2101B">{{ njCta }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= BUSINESS PORTAL ================= -->
+  <sc-if value="{{ roleBusiness }}" hint-placeholder-val="{{ false }}">
+  <div style="display:flex; flex:1; min-height:0; min-width:1180px">
+
+    <div style="width:224px; flex:none; background:#0E1620; display:flex; flex-direction:column; padding:18px 0">
+      <div style="padding:0 18px 20px; display:flex; flex-direction:column; gap:2px">
+        <div style="font-size:24px; font-weight:800; letter-spacing:-.5px; line-height:1"><span style="color:#E4131F">ROAD</span><span style="color:#2E9BE0">DOG</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; color:#6B7480">CUSTOMER PORTAL</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1px; padding:0 8px; flex:1; overflow-y:auto">
+        <sc-for list="{{ portalNav }}" as="item" hint-placeholder-count="8">
+          <div onClick="{{ item.onClick }}" style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:9px 11px; border-radius:7px; cursor:pointer; background:{{ item.bg }}; color:{{ item.fg }}" style-hover="background:#1A2632; color:#FFFFFF">
+            <span style="font-size:15.5px; font-weight:600; letter-spacing:-.1px">{{ item.label }}</span>
+            <sc-if value="{{ item.badge }}" hint-placeholder-val="{{ true }}">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600; background:#0F7DC2; color:#fff; padding:2px 6px; border-radius:20px">{{ item.badge }}</span>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="padding:14px 14px 0; margin-top:8px; border-top:1px solid #1A2632; display:flex; flex-direction:column; gap:12px">
+        <div style="display:flex; align-items:center; gap:10px; padding:0 4px">
+          <div style="width:30px; height:30px; border-radius:50%; background:#0F7DC2; color:#fff; display:grid; place-items:center; font-size:14px; font-weight:700; flex:none">AS</div>
+          <div style="display:flex; flex-direction:column">
+            <span style="font-size:14.5px; font-weight:600; color:#fff">Aidan Sinnott</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#6B7480; letter-spacing:.08em">SIN-014 · ADMIN</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; color:#6B7480; padding:0 4px">VIEW AS</span>
+          <div style="display:flex; gap:3px; background:#151F2A; padding:4px; border-radius:9px">
+            <sc-for list="{{ roles }}" as="r" hint-placeholder-count="3">
+              <div onClick="{{ r.onClick }}" style="flex:1; text-align:center; padding:7px 4px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:700; background:{{ r.bg }}; color:{{ r.fg }}">{{ r.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:1; min-width:0; display:flex; flex-direction:column">
+      <div style="height:62px; flex:none; background:#fff; border-bottom:1px solid #E3E6EA; display:flex; align-items:center; gap:18px; padding:0 24px">
+        <div style="display:flex; flex-direction:column; flex:none">
+          <span style="font-size:19px; font-weight:700; letter-spacing:-.3px; white-space:nowrap">{{ portalTitle }}</span>
+          <span style="font-size:13px; color:#6B7480; white-space:nowrap">{{ portalSub }}</span>
+        </div>
+        <div style="flex:1"></div>
+        <div style="display:flex; flex-direction:column; align-items:flex-end; flex:none">
+          <span style="font-size:15px; font-weight:600; color:#3C444D; white-space:nowrap">Sinnott Electrical Ltd</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6B7480; white-space:nowrap">30 day terms · balance €1,120</span>
+        </div>
+      </div>
+      <div style="flex:1; min-height:0; overflow-y:auto; padding:22px 24px 60px">
+
+    <sc-if value="{{ pBook }}" hint-placeholder-val="{{ true }}">
+    <div style="display:grid; grid-template-columns:1.1fr 1fr; gap:20px; align-items:start">
+      <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+        <div style="padding:18px; display:flex; flex-direction:column; gap:16px">
+          <div style="display:flex; flex-direction:column; gap:7px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#6B7480; text-transform:uppercase">Service</span>
+            <div style="display:flex; flex-wrap:wrap; gap:8px">
+              <sc-for list="{{ serviceOptions }}" as="s" hint-placeholder-count="6">
+                <div onClick="{{ s.onClick }}" style="padding:10px 13px; border-radius:8px; border:1px solid {{ s.border }}; background:{{ s.bg }}; color:{{ s.fg }}; cursor:pointer; display:flex; flex-direction:column; gap:2px">
+                  <span style="font-size:14.5px; font-weight:700">{{ s.name }}</span>
+                  <span style="font-size:12px; color:{{ s.subFg }}">{{ s.note }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
+            <sc-for list="{{ bookingFields }}" as="f" hint-placeholder-count="8">
+              <div style="display:flex; flex-direction:column; gap:6px; grid-column:{{ f.span }}">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#6B7480; text-transform:uppercase">{{ f.label }}</span>
+                <div style="border:1px solid #E3E6EA; border-radius:8px; padding:11px 12px; font-size:15px; color:{{ f.color }}; background:#FCFCFD">{{ f.value }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; background:#F2F9FE; border:1px solid #CBE3F3; border-radius:10px; padding:14px 16px">
+            <div style="display:flex; flex-direction:column; gap:3px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#0F7DC2; text-transform:uppercase">Quoted price</span>
+              <span style="font-size:27.5px; font-weight:800; letter-spacing:-.8px; color:#0B5D91">{{ quote }}</span>
+              <span style="font-size:13px; color:#3C7A9E">{{ quoteBasis }}</span>
+            </div>
+            <div onClick="{{ placeOrder }}" style="background:#E4131F; color:#fff; font-size:15.5px; font-weight:700; padding:13px 20px; border-radius:8px; cursor:pointer" style-hover="background:#C2101B">Place order</div>
+          </div>
+          <sc-if value="{{ ordered }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#EEF7F2; border:1px solid #BFE3CF; border-radius:10px; padding:15px 17px; display:flex; align-items:center; gap:16px">
+            <div style="display:flex; flex-direction:column; gap:4px; flex:1">
+              <span style="font-size:16px; font-weight:800; color:#12633D">Order placed · {{ orderedRef }}</span>
+              <span style="font-size:14px; color:#2E6B4C">Wexford desk has it. You'll get a tracking link by SMS the moment a van collects, and the POD by email on delivery.</span>
+            </div>
+            <div onClick="{{ resetOrder }}" style="font-size:14.5px; font-weight:700; color:#12633D; background:#fff; border:1px solid #BFE3CF; padding:10px 14px; border-radius:8px; cursor:pointer">Book another</div>
+          </div>
+          </sc-if>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px">
+        <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+          <div style="padding:14px 18px; border-bottom:1px solid #E3E6EA; font-size:16px; font-weight:700">Your live jobs</div>
+          <sc-for list="{{ myJobs }}" as="j" hint-placeholder-count="4">
+            <div style="padding:14px 18px; border-bottom:1px solid #EEF0F3; display:flex; flex-direction:column">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:600; color:#0F7DC2">{{ j.ref }}</span>
+                <span style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:{{ j.color }}">{{ j.status }}</span>
+              </div>
+              <div style="font-size:15px; font-weight:600; margin-bottom:4px">{{ j.route }}</div>
+              <div style="display:flex; gap:14px; margin-bottom:9px">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6B7480">{{ j.van }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6B7480">ETA {{ j.eta }}</span>
+              </div>
+              <div style="display:flex; gap:4px">
+                <sc-for list="{{ j.steps }}" as="s" hint-placeholder-count="4">
+                  <div style="flex:1; height:5px; border-radius:3px; background:{{ s.bg }}"></div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+          <div style="padding:14px 18px; border-bottom:1px solid #E3E6EA; font-size:16px; font-weight:700">Account</div>
+          <sc-for list="{{ acctRows }}" as="r" hint-placeholder-count="4">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 18px; border-bottom:1px solid #EEF0F3">
+              <span style="font-size:14.5px; color:#3C444D">{{ r.k }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:600; color:{{ r.color }}">{{ r.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- portal · track -->
+    <sc-if value="{{ pTrack }}" hint-placeholder-val="{{ false }}">
+    <div style="display:grid; grid-template-columns:1fr 340px; gap:18px; align-items:start">
+      <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+        <div style="padding:14px 18px; border-bottom:1px solid #E3E6EA; font-size:16px; font-weight:700">Open jobs</div>
+        <sc-for list="{{ myJobs }}" as="j" hint-placeholder-count="4">
+          <div style="padding:15px 18px; border-bottom:1px solid #EEF0F3; display:flex; flex-direction:column; gap:8px">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; color:#0F7DC2">{{ j.ref }}</span>
+              <span style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:{{ j.color }}">{{ j.status }}</span>
+            </div>
+            <span style="font-size:16px; font-weight:700; letter-spacing:-.2px">{{ j.route }}</span>
+            <div style="display:flex; gap:18px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">Van {{ j.van }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">ETA {{ j.eta }}</span>
+            </div>
+            <div style="display:flex; gap:4px">
+              <sc-for list="{{ j.steps }}" as="s" hint-placeholder-count="4">
+                <div style="flex:1; height:5px; border-radius:3px; background:{{ s.bg }}"></div>
+              </sc-for>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#9AA2AC">
+              <span>BOOKED</span><span>COLLECTED</span><span>ON ROUTE</span><span>DELIVERED</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden; height:420px; display:flex; flex-direction:column">
+        <div style="padding:14px 18px; border-bottom:1px solid #E3E6EA; font-size:16px; font-weight:700">Where is my van</div>
+        <div style="flex:1; display:grid; place-items:center; background-image:repeating-linear-gradient(135deg,#EDEFF2 0 12px,#F6F7F9 12px 24px)">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.14em; color:#7C848E; text-align:center">LIVE TRACKING MAP<br>RD3 · N11 NORTHBOUND</span>
+        </div>
+        <div style="padding:14px 18px; display:flex; flex-direction:column">
+          <div style="font-size:15px; font-weight:700; margin-bottom:3px">RD-24815 · ETA 15:52</div>
+          <div style="font-size:14px; color:#6B7480">Dave is 3 drops away. Your consignee gets a text 30 minutes out.</div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- portal · history -->
+    <sc-if value="{{ pHistory }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+      <div style="display:grid; grid-template-columns:110px 100px 1.6fr 1.1fr 1.2fr 90px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#6B7480; text-transform:uppercase; padding:10px 18px; background:#FAFBFC; border-bottom:1px solid #E3E6EA">
+        <span>Ref</span><span>Date</span><span>Route</span><span>Service</span><span>Proof</span><span style="text-align:right">Charged</span>
+      </div>
+      <sc-for list="{{ pHistoryRows }}" as="h" hint-placeholder-count="7">
+        <div style="display:grid; grid-template-columns:110px 100px 1.6fr 1.1fr 1.2fr 90px; align-items:center; padding:12px 18px; border-bottom:1px solid #EEF0F3; font-size:14.5px">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:600; color:#0F7DC2">{{ h.ref }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">{{ h.date }}</span>
+          <span style="font-weight:600">{{ h.route }}</span>
+          <span style="color:#6B7480">{{ h.service }}</span>
+          <span style="color:#12633D; font-weight:600">{{ h.pod }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:right">{{ h.price }}</span>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
+
+    <!-- portal · invoices -->
+    <sc-if value="{{ pInvoices }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex; flex-direction:column; gap:16px">
+      <div style="background:#0E1620; border-radius:12px; padding:18px 20px; display:flex; align-items:center; gap:28px">
+        <div style="display:flex; flex-direction:column; gap:4px; flex:1">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; color:#8A929C">CURRENT BALANCE</span>
+          <span style="font-size:30px; font-weight:800; letter-spacing:-1px; color:#fff">{{ quoteBalance }}</span>
+          <span style="font-size:14px; color:#8A929C">INV-4018 due 17 Sep 26 · nothing overdue · pay to IE29 AIBK 9311 5212 3456 78, quote your invoice number</span>
+        </div>
+        <div style="background:#0F7DC2; color:#fff; font-size:15px; font-weight:700; padding:12px 18px; border-radius:8px; cursor:pointer">Pay by bank transfer</div>
+        <div style="background:#1A2632; color:#fff; font-size:15px; font-weight:700; padding:12px 18px; border-radius:8px; cursor:pointer">Download statement</div>
+      </div>
+      <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+        <div style="display:grid; grid-template-columns:120px 120px 120px 110px 1fr; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#6B7480; text-transform:uppercase; padding:10px 18px; background:#FAFBFC; border-bottom:1px solid #E3E6EA">
+          <span>Invoice</span><span>Issued</span><span>Due</span><span>Amount</span><span>Status</span>
+        </div>
+        <sc-for list="{{ pInvoiceRows }}" as="i" hint-placeholder-count="4">
+          <div style="display:grid; grid-template-columns:120px 120px 120px 110px 1fr; align-items:center; padding:12px 18px; border-bottom:1px solid #EEF0F3; font-size:14.5px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:600; color:#0F7DC2">{{ i.no }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">{{ i.issued }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#6B7480">{{ i.due }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600">{{ i.amount }}</span>
+            <span style="font-size:13px; font-weight:700; color:{{ i.color }}">{{ i.status }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- portal · pod -->
+    <sc-if value="{{ pPod }}" hint-placeholder-val="{{ false }}">
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(238px,1fr)); gap:14px">
+      <sc-for list="{{ pods }}" as="p" hint-placeholder-count="8">
+        <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden; display:flex; flex-direction:column">
+          <div style="height:126px; background-image:repeating-linear-gradient(135deg,#EDEFF2 0 10px,#F6F7F9 10px 20px); display:grid; place-items:center">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.13em; color:#8A929C">{{ p.kind }}</span>
+          </div>
+          <div style="padding:12px 13px; display:flex; flex-direction:column; gap:5px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:600; color:#0F7DC2">{{ p.ref }}</span>
+            <span style="font-size:14.5px; font-weight:700">{{ p.customer }}</span>
+            <span style="font-size:13px; color:#6B7480">Signed {{ p.signedBy }} · {{ p.time }}</span>
+            <span style="font-size:13px; font-weight:700; color:#0F7DC2; cursor:pointer">Download PDF</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
+
+    <!-- portal · addresses -->
+    <sc-if value="{{ pAddresses }}" hint-placeholder-val="{{ false }}">
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px">
+      <sc-for list="{{ pAddressRows }}" as="a" hint-placeholder-count="6">
+        <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; padding:16px 17px; display:flex; flex-direction:column; gap:7px">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <span style="font-size:16px; font-weight:700; letter-spacing:-.2px">{{ a.name }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.11em; color:#6B7480; background:#F4F5F7; padding:3px 7px; border-radius:4px">{{ a.tag }}</span>
+          </div>
+          <span style="font-size:14.5px; color:#3C444D">{{ a.addr }}</span>
+          <span style="font-size:14.5px; color:#6B7480">{{ a.town }}</span>
+          <span style="font-size:13px; color:#6B7480; padding-top:5px; border-top:1px solid #EEF0F3">{{ a.note }}</span>
+          <span style="font-size:14px; font-weight:700; color:#0F7DC2; cursor:pointer">Book from here →</span>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
+
+    <!-- portal · users -->
+    <sc-if value="{{ pUsers }}" hint-placeholder-val="{{ false }}">
+    <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:16px; align-items:start">
+      <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+        <div style="padding:14px 18px; border-bottom:1px solid #E3E6EA; display:flex; justify-content:space-between; align-items:center">
+          <span style="font-size:16px; font-weight:700">Your team</span>
+          <span style="font-size:14px; font-weight:700; color:#0F7DC2; cursor:pointer">+ Invite user</span>
+        </div>
+        <sc-for list="{{ pUsersRows }}" as="u" hint-placeholder-count="3">
+          <div style="padding:14px 18px; border-bottom:1px solid #EEF0F3; display:flex; align-items:center; gap:14px">
+            <div style="flex:1; display:flex; flex-direction:column; gap:3px">
+              <span style="font-size:15.5px; font-weight:700">{{ u.name }}</span>
+              <span style="font-size:13px; color:#6B7480">{{ u.detail }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#9AA2AC">{{ u.email }}</span>
+            </div>
+            <span style="font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#0B5D91; background:#F2F9FE; padding:5px 9px; border-radius:20px">{{ u.role }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+        <div style="padding:14px 18px; border-bottom:1px solid #E3E6EA; font-size:16px; font-weight:700">Account preferences</div>
+        <sc-for list="{{ pPrefs }}" as="r" hint-placeholder-count="5">
+          <div style="display:grid; grid-template-columns:140px 1fr; gap:14px; align-items:baseline; padding:12px 18px; border-bottom:1px solid #EEF0F3">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#9AA2AC; text-transform:uppercase">{{ r.k }}</span>
+            <span style="font-size:14.5px; font-weight:500">{{ r.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- portal · support -->
+    <sc-if value="{{ pSupport }}" hint-placeholder-val="{{ false }}">
+    <div style="display:grid; grid-template-columns:1.1fr 1fr; gap:16px; align-items:start">
+      <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; overflow:hidden">
+        <div style="padding:14px 18px; border-bottom:1px solid #E3E6EA; font-size:16px; font-weight:700">Talk to the Wexford desk</div>
+        <sc-for list="{{ pSupportRows }}" as="r" hint-placeholder-count="5">
+          <div style="display:grid; grid-template-columns:150px 1fr; gap:14px; align-items:baseline; padding:13px 18px; border-bottom:1px solid #EEF0F3">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#9AA2AC; text-transform:uppercase">{{ r.k }}</span>
+            <span style="font-size:14.5px; font-weight:500">{{ r.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#fff; border:1px solid #E3E6EA; border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px">
+        <span style="font-size:16px; font-weight:700">Raise a query on a job</span>
+        <div style="display:flex; flex-direction:column; gap:6px">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#6B7480; text-transform:uppercase">Job reference</span>
+          <div style="border:1px solid #E3E6EA; border-radius:8px; padding:11px 12px; font-size:15px; background:#FCFCFD">RD-24815</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#6B7480; text-transform:uppercase">What's wrong</span>
+          <div style="border:1px solid #E3E6EA; border-radius:8px; padding:11px 12px; font-size:15px; color:#9AA2AC; min-height:82px; background:#FCFCFD">Tell us what happened — we'll pull the POD and driver notes before we ring you back…</div>
+        </div>
+        <div style="background:#E4131F; color:#fff; text-align:center; font-size:15.5px; font-weight:700; padding:13px; border-radius:8px; cursor:pointer">Send to dispatch</div>
+      </div>
+    </div>
+    </sc-if>
+
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= DRIVER APP ================= -->
+  <sc-if value="{{ roleDriver }}" hint-placeholder-val="{{ false }}">
+  <div style="flex:1; min-height:0; overflow-y:auto; background:#0E1620; display:flex; justify-content:center; align-items:flex-start; padding:28px 20px 60px; gap:28px">
+    <div style="width:392px; flex:none; background:#F4F5F7; border-radius:34px; border:9px solid #05090D; overflow:hidden; display:flex; flex-direction:column; height:812px">
+      <div style="background:#E4131F; color:#fff; padding:14px 18px 16px; display:flex; flex-direction:column; gap:12px">
+        <div style="display:flex; justify-content:space-between; align-items:center">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.1em">14:06 · WEXFORD</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px">RD3 · D. KEHOE</span>
+        </div>
+        <div onClick="{{ toggleShift }}" style="background:{{ shiftBg }}; border:1px solid rgba(255,255,255,.35); border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between; cursor:pointer">
+          <div style="display:flex; flex-direction:column; gap:2px">
+            <span style="font-size:16px; font-weight:800; letter-spacing:-.2px">{{ shiftLabel }}</span>
+            <span style="font-size:13px; opacity:.85">{{ shiftSub }}</span>
+          </div>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:600">{{ shiftClock }}</span>
+        </div>
+      </div>
+      <div style="flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:14px">
+        <div style="background:#fff; border-radius:14px; padding:16px; display:flex; flex-direction:column; gap:12px; box-shadow:0 1px 3px rgba(14,22,32,.08)">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600; color:#0F7DC2">{{ dJob.ref }}</span>
+            <span style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#C2700F; background:#FDF6EC; padding:4px 8px; border-radius:20px">{{ dJob.stageLabel }}</span>
+          </div>
+          <span style="font-size:22px; font-weight:800; letter-spacing:-.4px">{{ dJob.customer }}</span>
+          <div style="display:flex; flex-direction:column; gap:2px">
+            <span style="font-size:15.5px; font-weight:600">{{ dJob.addr }}</span>
+            <span style="font-size:14px; color:#6B7480">{{ dJob.town }} · {{ dJob.eircode }}</span>
+          </div>
+          <div style="display:flex; gap:8px">
+            <div style="flex:1; background:#0F7DC2; color:#fff; text-align:center; font-size:15px; font-weight:700; padding:12px; border-radius:9px; cursor:pointer">Navigate</div>
+            <div style="flex:1; background:#F4F5F7; color:#3C444D; text-align:center; font-size:15px; font-weight:700; padding:12px; border-radius:9px; cursor:pointer">Call site</div>
+          </div>
+          <div style="display:flex; gap:14px; padding-top:4px; border-top:1px solid #EEF0F3">
+            <sc-for list="{{ dJob.facts }}" as="f" hint-placeholder-count="3">
+              <div style="display:flex; flex-direction:column; gap:2px">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#9AA2AC; text-transform:uppercase">{{ f.k }}</span>
+                <span style="font-size:14.5px; font-weight:600">{{ f.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff; border-radius:14px; padding:16px; display:flex; flex-direction:column; gap:12px; box-shadow:0 1px 3px rgba(14,22,32,.08)">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#9AA2AC; text-transform:uppercase">Proof of delivery</span>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+            <div style="height:96px; border:1px dashed #C9CFD6; border-radius:10px; display:grid; place-items:center; background-image:repeating-linear-gradient(135deg,#F1F3F5 0 8px,#F8F9FA 8px 16px); cursor:pointer">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#7C848E; text-align:center">TAKE PHOTO<br>OF PARCEL</span>
+            </div>
+            <div style="height:96px; border:1px dashed #C9CFD6; border-radius:10px; display:grid; place-items:center; background:#FCFCFD; cursor:pointer">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#7C848E; text-align:center">SIGN HERE</span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#9AA2AC; text-transform:uppercase">Received by</span>
+            <div style="border:1px solid #E3E6EA; border-radius:8px; padding:11px 12px; font-size:15px; color:#9AA2AC">Name of person signing…</div>
+          </div>
+          <div onClick="{{ advanceStage }}" style="background:#1E8E5A; color:#fff; text-align:center; font-size:16px; font-weight:800; padding:14px; border-radius:10px; cursor:pointer; letter-spacing:-.2px">{{ dJob.cta }}</div>
+          <div style="display:flex; gap:8px">
+            <div onClick="{{ failJob }}" style="flex:1; text-align:center; font-size:14px; font-weight:700; color:#B0121C; background:#FEF2F2; border:1px solid #F7CACC; padding:11px; border-radius:9px; cursor:pointer">Can't deliver</div>
+            <div onClick="{{ toggleFuel }}" style="flex:1; text-align:center; font-size:14px; font-weight:700; color:#3C444D; background:#F4F5F7; padding:11px; border-radius:9px; cursor:pointer">Fuel receipt</div>
+          </div>
+          <sc-if value="{{ showFuel }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-direction:column; gap:9px; padding-top:6px; border-top:1px solid #EEF0F3">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#9AA2AC; text-transform:uppercase">Expense · goes straight to payroll</span>
+            <div style="height:88px; border:1px dashed #C9CFD6; border-radius:10px; display:grid; place-items:center; background-image:repeating-linear-gradient(135deg,#F1F3F5 0 8px,#F8F9FA 8px 16px); cursor:pointer">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#7C848E">PHOTO OF RECEIPT</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:9px">
+              <div style="border:1px solid #E3E6EA; border-radius:8px; padding:10px 11px; display:flex; flex-direction:column; gap:2px">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#9AA2AC">AMOUNT</span>
+                <span style="font-size:15px; font-weight:600">€92.40</span>
+              </div>
+              <div style="border:1px solid #E3E6EA; border-radius:8px; padding:10px 11px; display:flex; flex-direction:column; gap:2px">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; color:#9AA2AC">TYPE</span>
+                <span style="font-size:15px; font-weight:600">Diesel · RD3</span>
+              </div>
+            </div>
+            <div onClick="{{ toggleFuel }}" style="background:#0E1620; color:#fff; text-align:center; font-size:15px; font-weight:700; padding:12px; border-radius:9px; cursor:pointer">Submit expense</div>
+          </div>
+          </sc-if>
+          <sc-if value="{{ showFailReasons }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-direction:column; gap:6px; padding-top:4px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:#B0121C; text-transform:uppercase">Reason — dispatch is notified</span>
+            <sc-for list="{{ failReasons }}" as="r" hint-placeholder-count="4">
+              <div onClick="{{ r.onClick }}" style="border:1px solid #E3E6EA; border-radius:8px; padding:10px 12px; font-size:14.5px; font-weight:600; color:#3C444D; cursor:pointer" style-hover="border-color:#E4131F; color:#B0121C">{{ r.label }}</div>
+            </sc-for>
+          </div>
+          </sc-if>
+        </div>
+
+        <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 1px 3px rgba(14,22,32,.08)">
+          <div style="padding:13px 16px; border-bottom:1px solid #EEF0F3; display:flex; justify-content:space-between; align-items:center">
+            <span style="font-size:15.5px; font-weight:700">Rest of run</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6B7480">{{ dRemaining }} drops</span>
+          </div>
+          <sc-for list="{{ dQueue }}" as="q" hint-placeholder-count="4">
+            <div style="padding:12px 16px; border-bottom:1px solid #F4F5F7; display:flex; align-items:center; gap:12px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600; color:#9AA2AC; width:22px">{{ q.n }}</span>
+              <div style="flex:1; display:flex; flex-direction:column; gap:2px">
+                <span style="font-size:14.5px; font-weight:600">{{ q.customer }}</span>
+                <span style="font-size:12.5px; color:#6B7480">{{ q.town }} · {{ q.window }}</span>
+              </div>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6B7480">{{ q.km }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:300px; padding-top:12px; display:flex; flex-direction:column; gap:16px">
+      <div style="display:flex; gap:3px; background:#151F2A; padding:4px; border-radius:9px">
+        <sc-for list="{{ roles }}" as="r" hint-placeholder-count="3">
+          <div onClick="{{ r.onClick }}" style="flex:1; text-align:center; padding:7px 4px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:700; background:{{ r.bg }}; color:{{ r.fg }}">{{ r.label }}</div>
+        </sc-for>
+      </div>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.16em; color:#6B7480">DRIVER APP · ANDROID / IOS</span>
+      <sc-for list="{{ driverNotes }}" as="n" hint-placeholder-count="4">
+        <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px; border-left:2px solid #E4131F">
+          <span style="font-size:15.5px; font-weight:700; color:#fff">{{ n.title }}</span>
+          <span style="font-size:14px; color:#8A929C; line-height:1.5">{{ n.body }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFinancials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Access&quot;}}">
+const RED='#E4131F', BLUE='#0F7DC2', GREEN='#1E8E5A', AMBER='#C2700F', MUTED='#6B7480';
+const SC = { 'Unassigned':RED, 'Assigned':BLUE, 'Collected':AMBER, 'On route':BLUE, 'Delivered':GREEN, 'Failed':'#B0121C' };
+
+const VANS = [
+  { van:'RD1', driver:'Paul Byrne', reg:'19-WX-2841', model:'Ford Transit Custom' },
+  { van:'RD2', driver:'Mick Doyle', reg:'21-WX-1190', model:'Renault Trafic' },
+  { van:'RD3', driver:'Dave Kehoe', reg:'22-WX-864', model:'Ford Transit LWB' },
+  { van:'RD4', driver:'Sharon Walsh', reg:'20-WX-3312', model:'VW Caddy' },
+  { van:'RD5', driver:'Tomasz Nowak', reg:'23-WX-577', model:'Ford Transit LWB' },
+  { van:'RD6', driver:"Liam O'Neill", reg:'18-WX-4402', model:'Mercedes Sprinter' },
+  { van:'RD7', driver:'Aoife Murphy', reg:'23-WX-901', model:'VW Caddy' },
+  { van:'RD8', driver:'John Redmond', reg:'21-WX-2205', model:'Mercedes Sprinter 5t' },
+  { van:'RD9', driver:'Stephen Fox', reg:'22-WX-1478', model:'Ford Transit Custom' },
+  { van:'RD10', driver:'Ciara Nolan', reg:'24-WX-330', model:'Renault Master' },
+];
+
+const JOBS = [
+  { id:1, ref:'RD-24815', customer:'Sinnott Electrical', from:'Wexford Town', to:'Sandyford, D18', service:'Same-day urgent', pieces:'2 boxes · 14kg', price:'€78', window:'By 16:00', status:'On route', van:'RD3' },
+  { id:2, ref:'RD-24816', customer:'Kehoe Pharmacy', from:'Enniscorthy', to:'Gorey', service:'Same-day urgent', pieces:'1 tote · 4kg', price:'€28', window:'By 15:00', status:'Delivered', van:'RD7' },
+  { id:3, ref:'RD-24817', customer:'Wexford Creamery', from:'Wexford Town', to:'Cork City', service:'Pallet freight', pieces:'2 pallets · 640kg', price:'€245', window:'By 18:00', status:'On route', van:'RD8' },
+  { id:4, ref:'RD-24818', customer:'Byrne Joinery', from:'New Ross', to:'Kilkenny', service:'Furniture removal', pieces:'Kitchen units', price:'€310', window:'14:00–17:00', status:'Collected', van:'RD10' },
+  { id:5, ref:'RD-24819', customer:'Rossiter Motors', from:'Wexford Town', to:'Waterford', service:'Same-day urgent', pieces:'Gearbox · 62kg', price:'€65', window:'By 17:00', status:'Assigned', van:'RD2' },
+  { id:6, ref:'RD-24820', customer:'Slaney Foods', from:'Bunclody', to:'Multi-drop · 9 stops', service:'Multi-drop route', pieces:'9 chilled totes', price:'€185', window:'06:00–12:00', status:'Delivered', van:'RD5' },
+  { id:7, ref:'RD-24821', customer:'Doyle Plumbing', from:'Wexford Town', to:'Carlow', service:'Next-day parcel', pieces:'1 parcel · 8kg', price:'€22', window:'Tomorrow AM', status:'Assigned', van:'RD4' },
+  { id:8, ref:'RD-24822', customer:'St Aidan\u2019s School', from:'Enniscorthy', to:'Dublin 8', service:'Same-day urgent', pieces:'4 boxes', price:'€82', window:'By 16:30', status:'Unassigned', van:null },
+  { id:9, ref:'RD-24823', customer:'Murphy Floors', from:'Gorey', to:'Bray', service:'Pallet freight', pieces:'1 pallet · 310kg', price:'€140', window:'By 18:00', status:'Unassigned', van:null },
+  { id:10, ref:'RD-24824', customer:'Wexford Vet Clinic', from:'Wexford Town', to:'Rosslare', service:'Same-day urgent', pieces:'Cold chain · 2kg', price:'€35', window:'By 15:30', status:'Unassigned', van:null },
+  { id:11, ref:'RD-24825', customer:'Cullen Builders', from:'New Ross', to:'Limerick', service:'Pallet freight', pieces:'3 pallets', price:'€275', window:'By 19:00', status:'Unassigned', van:null },
+  { id:12, ref:'RD-24826', customer:'McGuiness Transport', from:'Wexford Depot', to:'Contract run · papers', service:'Contract run', pieces:'Daily bundles', price:'€120', window:'04:30–08:00', status:'Delivered', van:'RD1' },
+  { id:13, ref:'RD-24827', customer:'Harvey Norman Wexford', from:'Drinagh', to:'Ferns', service:'Furniture removal', pieces:'3-seater + table', price:'€165', window:'13:00–16:00', status:'Failed', van:'RD6' },
+  { id:14, ref:'RD-24828', customer:'Sinnott Electrical', from:'Wexford Town', to:'Naas', service:'Next-day parcel', pieces:'2 parcels', price:'€38', window:'Tomorrow AM', status:'Assigned', van:'RD9' },
+  { id:15, ref:'RD-24829', customer:'Kelly Fuels', from:'Wexford Town', to:'Multi-drop · 6 stops', service:'Multi-drop route', pieces:'6 drops', price:'€150', window:'12:00–18:00', status:'On route', van:'RD4' },
+  { id:16, ref:'RD-24830', customer:'Whitford House Hotel', from:'Wexford Town', to:'Dublin Airport', service:'Same-day urgent', pieces:'1 case', price:'€95', window:'By 17:30', status:'Collected', van:'RD3' },
+];
+
+const PRICES = { 'Same-day urgent':'€78.00', 'Next-day parcel':'€38.00', 'Multi-drop route':'€185.00', 'Pallet freight':'€140.00', 'Furniture removal':'€310.00', 'Contract run':'€120.00' };
+
+const SETTINGS = {
+  'Company': { intro:'Legal and depot details used on every invoice, docket and POD email.', groups:[
+    { title:'Business', rows:[['Trading name','RoadDog Courier Service'],['Registered name','P. Byrne Transport Ltd'],['CRO number','412778'],['VAT number','IE 6412778T'],['Established','1996 · Wexford Town']] },
+    { title:'Depot', rows:[['Address','Unit 4, Whitemill Industrial Estate, Wexford'],['Eircode','Y35 R2K8'],['Phone','053 912 4480'],['Out-of-hours mobile','087 244 0019'],['Opening hours','24/7 · same-day desk 06:00–20:00']] },
+    { title:'Invoicing defaults', rows:[['Default terms','30 days from invoice'],['VAT rate','23% standard'],['Fuel surcharge','4.5% (reviewed monthly)'],['Invoice run','Weekly, Monday 08:00'],['Bank','AIB Wexford · IE29 AIBK 9311 5212 3456 78']] },
+  ] },
+  'Users & roles': { intro:'Who can see what. Drivers only ever see their own run; office staff cannot change rate cards.', groups:[
+    { title:'Accounts', rows:[['Paul Byrne','Owner · full access'],['Marie Byrne','Office · dispatch, invoicing'],['Karen Doyle','Office · dispatch only'],['10 driver logins','Driver app only'],['Accountant (external)','Read-only invoicing + reports']] },
+    { title:'Permissions by role', rows:[['Owner','Everything incl. pricing and payroll'],['Office','Jobs, customers, POD, invoices'],['Driver','Own run, POD capture, expenses'],['Customer portal','Own jobs, own invoices, tracking'],['Read-only','Reports and invoice exports']] },
+    { title:'Security', rows:[['Two-factor','Required for owner + office'],['Driver device binding','One device per driver login'],['Session timeout','Office 8 h · driver 24 h'],['Audit log','All price and status changes kept 7 years']] },
+  ] },
+  'Services': { intro:'Every service the business sells, and the rules dispatch applies automatically.', groups:[
+    { title:'Active services', rows:[['Same-day urgent','Collect within 60 min · zone card'],['Next-day parcel','Nationwide by 17:00'],['Multi-drop route','Up to 12 stops · per-route price'],['Pallet freight','To 1,000 kg · tail lift optional'],['Furniture removal','2-man crew · hourly + mileage'],['Contract run','Recurring, fixed monthly invoice']] },
+    { title:'Automatic rules', rows:[['Out of hours','After 18:00 adds 35%'],['Weekend','Sat/Sun adds 50%'],['Waiting time','Free 30 min, then €22 per 30 min'],['Failed delivery','Re-delivery charged at 50%'],['Cold chain','Only RD4, RD7 (fridge fitted)']] },
+    { title:'Capacity guards', rows:[['Max drops per van/day','9'],['Max pallets per van','4'],['Driver hours cap','11 h before dispatch warns'],['Auto-queue','Jobs over capacity go to unassigned queue']] },
+  ] },
+  'Integrations': { intro:'The system is the hub — these connections stop anything being typed twice.', groups:[
+    { title:'Connected', rows:[['Xero','Invoices + payments sync nightly'],['Google Maps Platform','Routing, ETA, live tracking'],['Twilio SMS','Customer tracking texts'],['AIB bank feed','Transfers matched to invoices automatically'],['Revenue ROS','VAT return export']] },
+    { title:'Available', rows:[['Sage 50','Alternative to Xero'],['Fuelcard (Circle K)','Auto-import fuel spend per van'],['Webfleet telematics','Real GPS + driver behaviour'],['Shopify / WooCommerce','Retail customers push orders straight in']] },
+    { title:'API & data', rows:[['Customer API key','Issued per account'],['Webhooks','Status change, POD ready, invoice issued'],['Data export','CSV / Excel on any table'],['Backups','Hourly, 30-day retention, Dublin region']] },
+  ] },
+  'Notifications': { intro:'Who gets told what, and how loudly. Owner alerts are deliberately few.', groups:[
+    { title:'Owner alerts', rows:[['Job unassigned > 20 min','Push + SMS'],['Delivery going late','Push'],['Failed delivery','Push + email'],['Van idle > 20 min','Push'],['Invoice overdue 7 days','Email digest'],['Compliance due < 30 days','Email Monday']] },
+    { title:'Office alerts', rows:[['New portal order','Push, on screen'],['Driver message','Push'],['Waiting time started','On screen banner'],['POD missing at end of day','Email 18:30']] },
+    { title:'Quiet hours', rows:[['Owner','22:00–06:00 · urgent only'],['Office','Outside 06:00–20:00 muted'],['Escalation','Unactioned urgent alert rings owner mobile']] },
+  ] },
+};
+
+class Component extends DCLogic {
+  state = { role:'owner', screen:'dispatch', selectedId:null, boardByVan:true, jobFilter:'All', shift:true, dStage:0, showFail:false,
+    modal:null, detail:null, autoOff:{}, settingsTab:'Company', njService:'Same-day urgent', njVan:null,
+    bizService:'Same-day urgent', ordered:false, dFuel:false, portalScreen:'book' };
+
+  go(screen) { this.setState({ screen, detail:null }); }
+  select(id) { this.setState({ selectedId:id }); }
+  openDetail(kind, i) {
+    this.setState({ detail:{ kind, i } });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const showFinancials = this.props.showFinancials !== false;
+    const jobs = JOBS.map(j => ({ ...j,
+      route: j.from + ' → ' + j.to,
+      color: SC[j.status] || MUTED,
+      vanLabel: j.van || '—',
+      priceCell: showFinancials ? j.price : '••',
+      onClick: () => this.select(j.id),
+    }));
+
+    const unassigned = jobs.filter(j => j.status === 'Unassigned');
+    const nav = [
+      ['dispatch','Dispatch board', unassigned.length],
+      ['map','Live van map', 0],
+      ['jobs','All jobs', 0],
+      ['customers','Customers & pricing', 0],
+      ['fleet','Fleet & compliance', 2],
+      ['drivers','Drivers & payroll', 0],
+      ['invoicing','Invoicing', 0],
+      ['reports','Reports', 0],
+      ['pod','POD archive', 0],
+      ['alerts','Alerts & automation', 3],
+      ['settings','Settings', 0],
+    ];
+    const titles = { dispatch:'Dispatch board', map:'Live van map', jobs:'All jobs', customers:'Customers & pricing', fleet:'Fleet & compliance', drivers:'Drivers & payroll', invoicing:'Invoicing & billing', reports:'Reports & KPIs', pod:'Proof-of-delivery archive', alerts:'Alerts & automation', settings:'Settings' };
+
+    // board lanes
+    let lanes;
+    if (s.boardByVan) {
+      lanes = VANS.map(v => {
+        const list = jobs.filter(j => j.van === v.van);
+        return { title:v.van + ' · ' + v.driver.split(' ')[0], meta:v.driver.split(' ')[1] || '', count:list.length, jobs:list, empty:list.length===0, headBg:'#FFFFFF', headFg:'#131A21' };
+      }).filter(l => l.jobs.length > 0);
+    } else {
+      const order = ['Assigned','Collected','On route','Delivered','Failed'];
+      lanes = order.map(st => {
+        const list = jobs.filter(j => j.status === st);
+        return { title:st, meta:list.length + ' jobs today', count:list.length, jobs:list, empty:list.length===0, headBg: st==='Failed' ? '#FEF2F2' : '#FAFBFC', headFg: st==='Failed' ? '#B0121C' : '#131A21' };
+      });
+    }
+
+    const sel = jobs.find(j => j.id === s.selectedId);
+    const selVals = sel ? {
+      ref:sel.ref, customer:sel.customer, status:sel.status, color:sel.color,
+      legs:[
+        { kind:'COLLECTION', name:sel.from, addr:'Unit 4, Whitemill Industrial Estate', time:'Collected 12:40 · signed M. Foley', dot:BLUE },
+        { kind:'DELIVERY', name:sel.to, addr:'Blackthorn Rd, Sandyford Business Park', time:'ETA 15:52', dot:RED },
+      ],
+      facts:[
+        { k:'Service', v:sel.service }, { k:'Consignment', v:sel.pieces },
+        { k:'Window', v:sel.window }, { k:'Van / driver', v: sel.van ? sel.van + ' · ' + (VANS.find(v=>v.van===sel.van)||{}).driver : 'Not assigned' },
+        { k:'Zone', v:'Zone 3 · 158 km' }, { k:'Price', v: showFinancials ? sel.price + ' + VAT' : 'hidden' },
+      ],
+      activity:[
+        { t:'11:58', text:'Order placed via customer portal' },
+        { t:'12:04', text:'Auto-priced from Zone 3 rate card · ' + (showFinancials ? sel.price : '••') },
+        { t:'12:11', text:'Assigned to ' + (sel.van || 'queue') + ' by Paul' },
+        { t:'12:40', text:'Collected · barcode scanned, photo attached' },
+        { t:'12:41', text:'SMS sent to consignee with tracking link' },
+      ],
+    } : null;
+
+    const assignVans = VANS.map(v => {
+      const load = jobs.filter(j => j.van === v.van && j.status !== 'Delivered').length;
+      const active = sel && sel.van === v.van;
+      return { van:v.van, load: load + ' open', bg: active ? '#0F7DC2' : '#fff', fg: active ? '#fff' : '#131A21', subFg: active ? 'rgba(255,255,255,.75)' : MUTED, border: active ? '#0F7DC2' : '#E3E6EA', onClick: () => this.assign(v.van) };
+    });
+
+    const filters = ['All','Unassigned','On route','Delivered','Failed','Next-day'];
+    const filtered = jobs.filter(j => s.jobFilter === 'All' ? true : s.jobFilter === 'Next-day' ? j.service === 'Next-day parcel' : j.status === s.jobFilter);
+
+    const chart = [38,44,41,52,29,18,40,46,43,39,55,47,22,41].map((n,i) => ({
+      day:['M','T','W','T','F','S','S','M','T','W','T','F','S','S'][i],
+      h: Math.round(n/55*100) + '%',
+      lateH: Math.round([3,5,2,7,1,0,4,2,6,3,9,4,1,2][i]/n*100) + '%',
+    }));
+
+    return {
+      roles:[['owner','Owner'],['business','Customer'],['driver','Driver']].map(([k,l]) => ({
+        label:l, bg: s.role===k ? RED : 'transparent', fg: s.role===k ? '#fff' : '#8A929C', onClick: () => this.setState({ role:k, modal:null, detail:null })
+      })),
+      roleOwner: s.role==='owner', roleBusiness: s.role==='business', roleDriver: s.role==='driver',
+      navItems: nav.map(([k,label,badge]) => ({ label, badge: badge || false, bg: s.screen===k ? '#E4131F' : 'transparent', fg: s.screen===k ? '#fff' : '#A9B1BA', onClick: () => this.go(k) })),
+      screenTitle: titles[s.screen],
+      isDispatch: s.screen==='dispatch', isMap: s.screen==='map', isJobs: s.screen==='jobs', isCustomers: s.screen==='customers',
+      isFleet: s.screen==='fleet', isDrivers: s.screen==='drivers', isInvoicing: s.screen==='invoicing', isReports: s.screen==='reports',
+      isPod: s.screen==='pod', isAlerts: s.screen==='alerts', isSettings: s.screen==='settings',
+      alertCount: unassigned.length + 3, newJob: () => this.setState({ modal:'newjob' }),
+      showFinancials,
+      kpis:[
+        { label:'Jobs today', value:'47', sub:'16 open · 31 closed', color:'#131A21' },
+        { label:'Unassigned', value:String(unassigned.length), sub:'oldest 22 min', color:RED },
+        { label:'Vans on road', value:'8/10', sub:'RD6 off road', color:'#131A21' },
+        { label:'On-time', value:'94%', sub:'target 96%', color:AMBER },
+        { label: showFinancials ? 'Revenue today' : 'Drops done', value: showFinancials ? '€3,412' : '31', sub: showFinancials ? '+11% vs last Tue' : 'across 8 vans', color:'#131A21' },
+      ].map((k,i) => ({ ...k, divider: i === 0 ? 'none' : '1px solid #EEF0F3' })),
+      unassigned, unassignedCount: unassigned.length,
+      lanes, boardLabel: s.boardByVan ? 'Board grouped by van' : 'Board grouped by status',
+      statusLegend: [{ label:'Assigned', color:BLUE },{ label:'Collected', color:AMBER },{ label:'Delivered', color:GREEN },{ label:'Failed', color:'#B0121C' }],
+      hasIdleVans: VANS.some(v => !jobs.some(j => j.van === v.van)),
+      idleVans: VANS.filter(v => !jobs.some(j => j.van === v.van)).map(v => v.van + ' · ' + v.driver.split(' ')[0]).join('   ·   '),
+      toggleBoard: () => this.setState({ boardByVan: !s.boardByVan }),
+      hasSelected: !!sel && (s.screen === 'dispatch' || s.screen === 'jobs'), sel: selVals, assignVans, closeDrawer: () => this.setState({ selectedId:null }),
+      jobFilters: filters.map(f => ({ label:f, bg: s.jobFilter===f ? '#0E1620' : '#F4F5F7', fg: s.jobFilter===f ? '#fff' : '#3C444D', onClick: () => this.setState({ jobFilter:f }) })),
+      filteredJobs: filtered,
+      mapLegend:[{ label:'On route', color:BLUE },{ label:'At drop', color:AMBER },{ label:'Idle >15 min', color:RED }],
+      vanTracks:[
+        { van:'RD3', driver:'Dave Kehoe', state:'On route', color:BLUE, at:'N11 northbound, past Ashford', speed:'96 km/h', drops:'3', eta:'15:52' },
+        { van:'RD8', driver:'John Redmond', state:'On route', color:BLUE, at:'M8 southbound, Cashel', speed:'88 km/h', drops:'2', eta:'17:20' },
+        { van:'RD4', driver:'Sharon Walsh', state:'At drop', color:AMBER, at:'Kelly Fuels, Castlebridge', speed:'0 km/h', drops:'5', eta:'—' },
+        { van:'RD10', driver:'Ciara Nolan', state:'On route', color:BLUE, at:'R700 toward Kilkenny', speed:'74 km/h', drops:'1', eta:'16:05' },
+        { van:'RD5', driver:'Tomasz Nowak', state:'Idle 24 min', color:RED, at:'Bunclody village square', speed:'0 km/h', drops:'0', eta:'—' },
+        { van:'RD1', driver:'Paul Byrne', state:'Back at depot', color:'#6B7480', at:'Whitemill depot, Wexford', speed:'0 km/h', drops:'0', eta:'—' },
+        { van:'RD2', driver:'Mick Doyle', state:'On route', color:BLUE, at:'Wexford bypass', speed:'81 km/h', drops:'1', eta:'16:40' },
+        { van:'RD9', driver:'Stephen Fox', state:'At drop', color:AMBER, at:'Naas depot handover', speed:'0 km/h', drops:'4', eta:'—' },
+      ],
+      customers:[
+        { name:'Sinnott Electrical Ltd', contact:'Aidan Sinnott', town:'Wexford Town', terms:'30 day', rate:'Zone card −8%', mtd:'€2,840', owed:'€1,120', owedColor:'#131A21', tagBg:'#F2F9FE', tagFg:'#0B5D91' },
+        { name:'McGuiness Transport', contact:'Ger McGuiness', town:'Wexford Town', terms:'Contract', rate:'Fixed €120/run', mtd:'€3,600', owed:'€0', owedColor:GREEN, tagBg:'#EEF7F2', tagFg:'#12633D' },
+        { name:'Wexford Creamery', contact:'Nora Barry', town:'Drinagh', terms:'30 day', rate:'Pallet card', mtd:'€4,215', owed:'€2,455', owedColor:'#131A21', tagBg:'#F2F9FE', tagFg:'#0B5D91' },
+        { name:'Harvey Norman Wexford', contact:'Store ops', town:'Drinagh', terms:'14 day', rate:'Removal hourly', mtd:'€1,980', owed:'€1,980', owedColor:RED, tagBg:'#FDF6EC', tagFg:'#8A4E08' },
+        { name:'Kehoe Pharmacy Group', contact:'Sarah Kehoe', town:'Enniscorthy', terms:'Prepay', rate:'Zone card', mtd:'€640', owed:'€0', owedColor:GREEN, tagBg:'#EEF7F2', tagFg:'#12633D' },
+        { name:'Slaney Foods Intl', contact:'Dispatch office', town:'Bunclody', terms:'30 day', rate:'Multi-drop €185', mtd:'€5,180', owed:'€3,700', owedColor:'#131A21', tagBg:'#F2F9FE', tagFg:'#0B5D91' },
+      ].map((c,i) => ({ ...c, onClick: () => this.openDetail('customer', i) })),
+      zones:[
+        { zone:'Zone 1 · Co. Wexford', km:'0–45', small:'€22', transit:'€35', pallet:'€60' },
+        { zone:'Zone 2 · Waterford / Carlow / Kilkenny', km:'45–95', small:'€38', transit:'€65', pallet:'€110' },
+        { zone:'Zone 3 · Dublin / Wicklow / Kildare', km:'95–180', small:'€52', transit:'€78', pallet:'€140' },
+        { zone:'Zone 4 · Cork / Tipperary', km:'180–260', small:'€85', transit:'€135', pallet:'€245' },
+        { zone:'Zone 5 · Limerick / Clare', km:'260–320', small:'€105', transit:'€160', pallet:'€275' },
+        { zone:'Zone 6 · Galway / Mayo', km:'320–400', small:'€125', transit:'€185', pallet:'€310' },
+        { zone:'Zone 7 · Donegal / Northern Ireland', km:'400+', small:'€165', transit:'€230', pallet:'€395' },
+      ],
+      surcharges:['Out of hours +35%','Sat/Sun +50%','Bank holiday +75%','Waiting time €22/30min','Tail lift €18','Fuel surcharge 4.5% (Sep 26)'],
+      fleetStats:[
+        { label:'Vans in fleet', value:'10', sub:'8 on road · 1 service · 1 spare', color:'#131A21' },
+        { label:'Compliance due <30d', value:'2', sub:'RD6 CVRT · RD1 motor tax', color:RED },
+        { label:'Fuel spend MTD', value:'€4,860', sub:'€0.19/km avg', color:'#131A21' },
+        { label:'Cost per drop', value:'€6.40', sub:'−€0.30 vs August', color:GREEN },
+      ],
+      fleet: VANS.map((v,i) => {
+        const rows = [
+          ['14 Sep 26', RED, '03 Mar 27', '#131A21', '4,200 km', '#131A21', 'Active · on road', GREEN],
+          ['30 Nov 26', '#131A21', '18 Jan 27', '#131A21', '1,100 km', AMBER, 'Active · on road', GREEN],
+          ['31 Jan 27', '#131A21', '22 Jun 27', '#131A21', '8,400 km', '#131A21', 'Active · on road', GREEN],
+          ['28 Feb 27', '#131A21', '09 Apr 27', '#131A21', '6,900 km', '#131A21', 'Active · on road', GREEN],
+          ['31 Oct 26', '#131A21', '14 Dec 26', AMBER, '2,300 km', '#131A21', 'Active · on road', GREEN],
+          ['31 Dec 26', '#131A21', '21 Sep 26', RED, 'Overdue', RED, 'Off road · CVRT booked', RED],
+          ['30 Jun 27', '#131A21', '02 Aug 27', '#131A21', '9,600 km', '#131A21', 'Finished for day', MUTED],
+          ['31 Mar 27', '#131A21', '11 May 27', '#131A21', '5,100 km', '#131A21', 'Active · on road', GREEN],
+          ['31 Aug 26', RED, '30 Nov 26', '#131A21', '3,800 km', '#131A21', 'Active · on road', GREEN],
+          ['31 Jul 27', '#131A21', '15 Feb 27', '#131A21', '11,200 km', '#131A21', 'Spare · unassigned', MUTED],
+        ][i];
+        return { van:v.van, reg:v.reg, model:v.model, driver:v.driver, tax:rows[0], taxColor:rows[1], cvrt:rows[2], cvrtColor:rows[3], service:rows[4], serviceColor:rows[5], status:rows[6], statusColor:rows[7], onClick: () => this.openDetail('van', i) };
+      }),
+      payrollTotal: showFinancials ? '€6,184' : '••',
+      drivers: VANS.map((v,i) => {
+        const d = [
+          ['41.5','38','97%','€62','€910','Tacho + CPC valid'],
+          ['44.0','52','94%','€118','€982','Tacho + CPC valid'],
+          ['46.5','61','91%','€145','€1,040','CPC expires 12 Nov'],
+          ['38.0','44','98%','€54','€848','Tacho + CPC valid'],
+          ['45.0','73','96%','€132','€1,005','Tacho + CPC valid'],
+          ['12.0','9','88%','€28','€268','Licence check overdue'],
+          ['36.5','40','99%','€48','€815','Tacho + CPC valid'],
+          ['43.0','35','93%','€165','€960','Tacho + CPC valid'],
+          ['40.0','48','95%','€88','€893','Tacho + CPC valid'],
+          ['0.0','0','—','€0','€0','New start · induction due'],
+        ][i];
+        const otNum = parseInt(d[2]) || 0;
+        return { name:v.driver, initials:v.driver.split(' ').map(x=>x[0]).join(''), van:v.van, hours:d[0], drops:d[1], onTime:d[2], otColor: otNum && otNum < 93 ? RED : '#131A21', expenses: showFinancials ? d[3] : '••', pay: showFinancials ? d[4] : '••', compliance:d[5], compColor: /overdue|expires|due/i.test(d[5]) ? RED : GREEN };
+      }),
+      billReady: showFinancials ? '€9,740' : '••••', billReadyJobs:'128',
+      billStats:[
+        { label:'Outstanding', value: showFinancials ? '€18,420' : '••', color:'#fff' },
+        { label:'Overdue >30d', value: showFinancials ? '€4,310' : '••', color:'#FF7B82' },
+        { label:'Paid this month', value: showFinancials ? '€31,880' : '••', color:'#68D19B' },
+      ],
+      runBilling: () => this.setState({ screen:'invoicing' }),
+      invoices:[
+        { no:'INV-4021', customer:'Slaney Foods Intl', issued:'25 Aug 26', due:'24 Sep 26', amount: showFinancials?'€3,700':'••', status:'Sent', color:BLUE },
+        { no:'INV-4020', customer:'Wexford Creamery', issued:'25 Aug 26', due:'24 Sep 26', amount: showFinancials?'€2,455':'••', status:'Sent', color:BLUE },
+        { no:'INV-4019', customer:'Harvey Norman Wexford', issued:'11 Aug 26', due:'25 Aug 26', amount: showFinancials?'€1,980':'••', status:'Overdue 7d', color:RED },
+        { no:'INV-4018', customer:'Sinnott Electrical Ltd', issued:'18 Aug 26', due:'17 Sep 26', amount: showFinancials?'€1,120':'••', status:'Sent', color:BLUE },
+        { no:'INV-4017', customer:'McGuiness Transport', issued:'01 Aug 26', due:'31 Aug 26', amount: showFinancials?'€3,600':'••', status:'Paid', color:GREEN },
+        { no:'INV-4016', customer:'Cullen Builders', issued:'01 Aug 26', due:'31 Aug 26', amount: showFinancials?'€2,140':'••', status:'Paid', color:GREEN },
+        { no:'INV-4015', customer:'Kehoe Pharmacy Group', issued:'01 Aug 26', due:'15 Aug 26', amount: showFinancials?'€640':'••', status:'Paid', color:GREEN },
+        { no:'DRAFT-42', customer:'Weekly run · 128 jobs', issued:'—', due:'—', amount: showFinancials?'€9,740':'••', status:'Draft — ready', color:AMBER },
+      ].map((x,i) => ({ ...x, onClick: () => this.openDetail('invoice', i) })),
+      chart,
+      reportCards:[
+        { title:'Service mix (30 days)', rows:[
+          { k:'Same-day urgent', v:'42%', color:'#131A21' },{ k:'Next-day parcel', v:'21%', color:'#131A21' },
+          { k:'Multi-drop routes', v:'16%', color:'#131A21' },{ k:'Pallet freight', v:'13%', color:'#131A21' },{ k:'Furniture removals', v:'8%', color:'#131A21' } ] },
+        { title:'Profit per service', rows:[
+          { k:'Contract runs', v: showFinancials?'€48 margin':'••', color:GREEN },{ k:'Pallet freight', v: showFinancials?'€96 margin':'••', color:GREEN },
+          { k:'Same-day urgent', v: showFinancials?'€31 margin':'••', color:'#131A21' },{ k:'Removals', v: showFinancials?'€72 margin':'••', color:GREEN },{ k:'Next-day parcel', v: showFinancials?'€4 margin':'••', color:RED } ] },
+        { title:'Where time is lost', rows:[
+          { k:'Waiting at collection', v:'6.4 h/wk', color:RED },{ k:'Unbilled waiting time', v: showFinancials?'€480':'••', color:RED },
+          { k:'Empty return legs', v:'22%', color:AMBER },{ k:'Failed deliveries', v:'1.8%', color:'#131A21' },{ k:'Avg drops per van/day', v:'5.9', color:'#131A21' } ] },
+      ],
+      pods:[
+        { ref:'RD-24816', customer:'Kehoe Pharmacy', signedBy:'S. Kehoe', time:'Today 14:02', van:'RD7', kind:'PHOTO + SIGNATURE', state:'Delivered', color:GREEN },
+        { ref:'RD-24820', customer:'Slaney Foods Intl', signedBy:'9 consignees', time:'Today 11:48', van:'RD5', kind:'9 PHOTOS', state:'Delivered', color:GREEN },
+        { ref:'RD-24826', customer:'McGuiness Transport', signedBy:'Depot stamp', time:'Today 07:52', van:'RD1', kind:'PHOTO', state:'Delivered', color:GREEN },
+        { ref:'RD-24827', customer:'Harvey Norman', signedBy:'—', time:'Today 13:31', van:'RD6', kind:'PHOTO + NOTE', state:'Failed · no access', color:RED },
+        { ref:'RD-24812', customer:'Byrne Joinery', signedBy:'T. Byrne', time:'Yest 17:14', van:'RD10', kind:'SIGNATURE', state:'Delivered', color:GREEN },
+        { ref:'RD-24809', customer:'Wexford Creamery', signedBy:'Gate office', time:'Yest 16:02', van:'RD8', kind:'PHOTO + WEIGHBRIDGE', state:'Delivered', color:GREEN },
+        { ref:'RD-24805', customer:'Sinnott Electrical', signedBy:'A. Sinnott', time:'Yest 12:20', van:'RD3', kind:'PHOTO + SIGNATURE', state:'Delivered', color:GREEN },
+        { ref:'RD-24801', customer:'Rossiter Motors', signedBy:'Parts desk', time:'Yest 10:05', van:'RD2', kind:'SIGNATURE', state:'Delivered', color:GREEN },
+      ].map((p,i) => ({ ...p, onClick: () => this.openDetail('pod', i) })),
+      automations:[
+        { name:'Booking confirmed', detail:'Sent the moment an order is accepted, with ref and price', channel:'EMAIL', on:true },
+        { name:'Driver on the way', detail:'Tracking link + live ETA when the van leaves collection', channel:'SMS', on:true },
+        { name:'30 minutes out', detail:'Consignee gets a heads-up so someone is on site', channel:'SMS', on:true },
+        { name:'Delivered + POD', detail:'Photo and signature attached automatically', channel:'EMAIL', on:true },
+        { name:'Failed delivery', detail:'Reason, photo and re-delivery options', channel:'SMS + EMAIL', on:true },
+        { name:'Invoice reminder', detail:'Day 25 and day 35 after issue', channel:'EMAIL', on:false },
+      ].map((a,i) => {
+        const isOn = s.autoOff[i] !== undefined ? s.autoOff[i] : a.on;
+        return { ...a, on:isOn, knobBg: isOn ? GREEN : '#C9CFD6', knobX: isOn ? '19px' : '3px',
+          onClick: () => this.setState({ autoOff: { ...s.autoOff, [i]: !isOn } }) };
+      }),
+      exceptions:[
+        { title:'RD-24827 failed · Harvey Norman', detail:'No access at Ferns address, customer not answering. Parcel back on van.', time:'13:31', action:'Re-book for tomorrow AM →', color:RED },
+        { title:'RD5 idle 24 minutes', detail:'Tomasz stopped in Bunclody with 0 drops left — run finished early?', time:'13:42', action:'Message driver →', color:AMBER },
+        { title:'RD-24817 running late', detail:'Cork pallet delivery now ETA 18:35, promised by 18:00.', time:'13:55', action:'Notify Wexford Creamery →', color:AMBER },
+        { title:'RD6 CVRT overdue', detail:'Certificate expired 21 Sep. Van must stay off road.', time:'09:00', action:'Open fleet record →', color:RED },
+        { title:'Harvey Norman €1,980 overdue 7d', detail:'Second reminder not yet sent — automation is off.', time:'08:10', action:'Send reminder →', color:RED },
+      ].map((e,i) => ({ ...e, onClick: () => this.go(['jobs','map','jobs','fleet','invoicing'][i]) })),
+      // settings
+      settingsTabs: ['Company','Users & roles','Services','Integrations','Notifications'].map(t => ({
+        label:t, bg: s.settingsTab===t ? '#0E1620' : '#F4F5F7', fg: s.settingsTab===t ? '#fff' : '#3C444D',
+        onClick: () => this.setState({ settingsTab:t })
+      })),
+      settingsPanel: { intro: SETTINGS[s.settingsTab].intro, groups: SETTINGS[s.settingsTab].groups.map(g => ({ title:g.title, rows:g.rows.map(r => ({ k:r[0], v:r[1] })) })) },
+      // new job modal
+      modalOpen: s.modal === 'newjob' && s.role === 'owner',
+      closeModal: () => this.setState({ modal:null }),
+      njServices: ['Same-day urgent','Next-day parcel','Multi-drop route','Pallet freight','Furniture removal','Contract run'].map(n => ({
+        name:n, bg: s.njService===n ? '#0E1620' : '#fff', fg: s.njService===n ? '#fff' : '#131A21',
+        border: s.njService===n ? '#0E1620' : '#E3E6EA', onClick: () => this.setState({ njService:n })
+      })),
+      njFields:[
+        { label:'Customer account', value:'Sinnott Electrical Ltd', span:'span 2' },
+        { label:'Collection', value:'Unit 4, Whitemill Ind. Est., Wexford', span:'span 2' },
+        { label:'Delivery', value:'Blackthorn Rd, Sandyford, D18', span:'span 2' },
+        { label:'Ready from', value:'Today 15:00', span:'auto' },
+        { label:'Deliver by', value:'Today 18:00', span:'auto' },
+        { label:'Pieces / weight', value:'2 boxes · 14 kg', span:'auto' },
+        { label:'Taken by phone from', value:'Aidan Sinnott · 087 244 1180', span:'auto' },
+      ],
+      njPrice: showFinancials ? (PRICES[s.njService] || '€78.00') : 'On account',
+      njBasis: 'Zone 3 · 158 km · ' + s.njService.toLowerCase() + ' rate',
+      njVans: VANS.slice(0,10).map(v => ({
+        van:v.van, driver:v.driver.split(' ')[0],
+        bg: s.njVan===v.van ? '#0F7DC2' : '#fff', fg: s.njVan===v.van ? '#fff' : '#131A21',
+        subFg: s.njVan===v.van ? 'rgba(255,255,255,.75)' : MUTED,
+        border: s.njVan===v.van ? '#0F7DC2' : '#E3E6EA',
+        onClick: () => this.setState({ njVan:v.van })
+      })),
+      njCta: s.njVan ? 'Create & assign to ' + s.njVan : 'Create job in queue',
+      createJob: () => this.setState({ modal:null, screen:'dispatch' }),
+      // generic detail panel
+      hasDetail: !!s.detail && !!this.detailFor(s.detail, showFinancials),
+      detail: this.mapDetail(this.detailFor(s.detail, showFinancials)),
+      closeDetail: () => this.setState({ detail:null }),
+      // business portal
+      serviceOptions:[
+        ['Same-day urgent','Collect within 60 min'],['Next-day parcel','Nationwide by 17:00'],['Multi-drop route','Up to 12 stops'],
+        ['Pallet freight','Up to 1,000 kg'],['Furniture removal','2-man crew'],['Contract run','Recurring daily'],
+      ].map(([name,note]) => {
+        const on = s.bizService === name;
+        return { name, note, bg: on ? '#0E1620' : '#fff', fg: on ? '#fff' : '#131A21', subFg: on ? '#8A929C' : MUTED, border: on ? '#0E1620' : '#E3E6EA', onClick: () => this.setState({ bizService:name, ordered:false }) };
+      }),
+      portalNav: [['book','Book a delivery',0],['track','Track live jobs',2],['history','Delivery history',0],['invoices','Invoices',1],['pod','POD documents',0],['addresses','Address book',0],['users','Users & settings',0],['support','Support',0]].map(([k,label,badge]) => ({
+        label, badge: badge || false,
+        bg: s.portalScreen===k ? '#E4131F' : 'transparent', fg: s.portalScreen===k ? '#fff' : '#A9B1BA',
+        onClick: () => this.setState({ portalScreen:k, ordered:false })
+      })),
+      portalTitle: { book:'Book a delivery', track:'Track live jobs', history:'Delivery history', invoices:'Invoices', pod:'POD documents', addresses:'Address book', users:'Users & settings', support:'Support' }[s.portalScreen],
+      portalSub: { book:'Priced instantly from your agreed zone rate card', track:'Live van position and ETA on every open job', history:'Every job you have booked with us, with proof of delivery attached', invoices:'Statements, outstanding balance and payment links', pod:'Signed dockets and delivery photos, kept 7 years', addresses:'Saved collection and delivery points for one-tap booking', users:'Who in your team can book, and what they can see', support:'The Wexford desk, and how to reach a human fast' }[s.portalScreen],
+      pBook: s.portalScreen==='book', pTrack: s.portalScreen==='track', pHistory: s.portalScreen==='history',
+      pInvoices: s.portalScreen==='invoices', pPod: s.portalScreen==='pod', pAddresses: s.portalScreen==='addresses',
+      pUsers: s.portalScreen==='users', pSupport: s.portalScreen==='support',
+      pHistoryRows: [
+        { ref:'RD-24805', date:'31 Aug 26', route:'Wexford → Portlaoise', service:'Same-day urgent', pod:'Signed · A. Sinnott', price: showFinancials?'€68':'••' },
+        { ref:'RD-24799', date:'29 Aug 26', route:'Wexford → Athlone', service:'Next-day parcel', pod:'Photo + signature', price: showFinancials?'€42':'••' },
+        { ref:'RD-24784', date:'27 Aug 26', route:'Wexford → Sandyford D18', service:'Same-day urgent', pod:'Signed · goods-in', price: showFinancials?'€78':'••' },
+        { ref:'RD-24771', date:'26 Aug 26', route:'Wexford → Cork City', service:'Pallet freight', pod:'Weighbridge docket', price: showFinancials?'€245':'••' },
+        { ref:'RD-24760', date:'22 Aug 26', route:'Wexford → Naas', service:'Next-day parcel', pod:'Photo at door', price: showFinancials?'€38':'••' },
+        { ref:'RD-24742', date:'20 Aug 26', route:'Wexford → Kilkenny', service:'Multi-drop · 4 stops', pod:'4 signatures', price: showFinancials?'€120':'••' },
+        { ref:'RD-24730', date:'18 Aug 26', route:'Wexford → Rosslare Europort', service:'Same-day urgent', pod:'Signed · dock office', price: showFinancials?'€35':'••' },
+      ],
+      pInvoiceRows: [
+        { no:'INV-4018', issued:'18 Aug 26', due:'17 Sep 26', amount: showFinancials?'€1,120':'••', status:'Open', color:BLUE },
+        { no:'INV-3994', issued:'21 Jul 26', due:'20 Aug 26', amount: showFinancials?'€2,265':'••', status:'Paid', color:GREEN },
+        { no:'INV-3971', issued:'23 Jun 26', due:'23 Jul 26', amount: showFinancials?'€1,840':'••', status:'Paid', color:GREEN },
+        { no:'INV-3948', issued:'19 May 26', due:'18 Jun 26', amount: showFinancials?'€2,010':'••', status:'Paid', color:GREEN },
+      ],
+      pAddressRows: [
+        { name:'Our yard · Wexford', addr:'Unit 4, Whitemill Ind. Est.', town:'Wexford Y35 R2K8', note:'Default collection · forklift on site', tag:'COLLECTION' },
+        { name:'Sandyford site', addr:'Blackthorn Rd, Sandyford Business Park', town:'Dublin D18 T9K4', note:'Goods-in gate closes 16:30', tag:'DELIVERY' },
+        { name:'Naas depot', addr:'Unit 11, Monread Ind. Est.', town:'Naas, Co. Kildare', note:'Ask for parts desk', tag:'DELIVERY' },
+        { name:'Cork branch', addr:'Kinsale Rd Roundabout', town:'Cork T12 K4H9', note:'Tail lift needed', tag:'DELIVERY' },
+        { name:'Athlone contractor', addr:'Golden Island Retail Park', town:'Athlone N37 P1D6', note:'Site foreman: 086 771 2204', tag:'DELIVERY' },
+        { name:'Rosslare Europort', addr:'Terminal dock office', town:'Rosslare Harbour', note:'Photo ID required at barrier', tag:'DELIVERY' },
+      ],
+      pUsersRows: [
+        { name:'Aidan Sinnott', role:'Admin', detail:'Books, sees prices and invoices', email:'aidan@sinnottelec.ie' },
+        { name:'Marie Kelly', role:'Booker', detail:'Books jobs, no invoice access', email:'marie@sinnottelec.ie' },
+        { name:'Accounts inbox', role:'Billing only', detail:'Receives invoices and PODs', email:'accounts@sinnottelec.ie' },
+      ],
+      pPrefs: [
+        { k:'PO number required', v:'Yes — booking blocked without one' },
+        { k:'Tracking texts to', v:'Consignee mobile on each job' },
+        { k:'POD delivery', v:'Email on completion + weekly pack' },
+        { k:'Invoice cycle', v:'Monthly, 30 day terms' },
+        { k:'Default service', v:'Same-day urgent' },
+      ],
+      quoteBalance: showFinancials ? '€1,120.00' : 'On account',
+      pSupportRows: [
+        { k:'Same-day desk', v:'053 912 4480 · 06:00–20:00, 7 days' },
+        { k:'Out of hours', v:'087 244 0019 · Paul or duty driver' },
+        { k:'Email', v:'ops@roaddogcourier.ie · answered within 30 min' },
+        { k:'Your account manager', v:'Marie Byrne · marie@roaddogcourier.ie' },
+        { k:'Claims', v:'Report within 48 h with the POD reference' },
+      ],
+      placeOrder: () => this.setState({ ordered:true }),
+      ordered: s.ordered,
+      orderedRef: 'RD-24831',
+      resetOrder: () => this.setState({ ordered:false }),
+      bookingFields:[
+        { label:'Collection address', value:'Unit 4, Whitemill Ind. Est., Wexford', color:'#131A21', span:'span 2' },
+        { label:'Delivery address', value:'Blackthorn Rd, Sandyford, D18', color:'#131A21', span:'span 2' },
+        { label:'Contact on site', value:'Aidan Sinnott · 087 244 1180', color:'#131A21', span:'auto' },
+        { label:'Ready from', value:'Today 15:00', color:'#131A21', span:'auto' },
+        { label:'Pieces', value:'2 boxes', color:'#131A21', span:'auto' },
+        { label:'Weight', value:'14 kg', color:'#131A21', span:'auto' },
+        { label:'Your reference (PO)', value:'PO-88214', color:'#131A21', span:'auto' },
+        { label:'Special instructions', value:'Ring bell at goods-in gate', color:MUTED, span:'auto' },
+      ],
+      quote: showFinancials ? (PRICES[s.bizService] || '€78.00') : 'On account',
+      quoteBasis:'Zone 3 · 158 km · ' + s.bizService.toLowerCase() + ' · account discount 8% applied',
+      myJobs:[
+        { ref:'RD-24815', route:'Wexford → Sandyford D18', status:'On route', color:BLUE, van:'RD3', eta:'15:52', steps:[GREEN,GREEN,BLUE,'#E3E6EA'] },
+        { ref:'RD-24828', route:'Wexford → Naas', status:'Assigned', color:BLUE, van:'RD9', eta:'Tomorrow AM', steps:[GREEN,'#E3E6EA','#E3E6EA','#E3E6EA'] },
+        { ref:'RD-24805', route:'Wexford → Portlaoise', status:'Delivered', color:GREEN, van:'RD3', eta:'—', steps:[GREEN,GREEN,GREEN,GREEN] },
+        { ref:'RD-24799', route:'Wexford → Athlone', status:'Delivered', color:GREEN, van:'RD8', eta:'—', steps:[GREEN,GREEN,GREEN,GREEN] },
+      ].map(j => ({ ...j, steps: j.steps.map(c => ({ bg:c })) })),
+      acctRows:[
+        { k:'Jobs this month', v:'34', color:'#131A21' },
+        { k:'Spend this month', v: showFinancials?'€2,840':'••', color:'#131A21' },
+        { k:'Outstanding balance', v: showFinancials?'€1,120':'••', color:'#131A21' },
+        { k:'Next invoice', v:'25 Sep 26', color:MUTED },
+      ],
+      // driver app
+      toggleShift: () => this.setState({ shift: !s.shift }),
+      shiftLabel: s.shift ? 'Shift running' : 'Start shift',
+      shiftSub: s.shift ? 'Started 06:12 · tap to end' : 'Tap to clock in for today',
+      shiftClock: s.shift ? '7h 54m' : '00:00',
+      shiftBg: s.shift ? 'rgba(0,0,0,.18)' : 'rgba(255,255,255,.14)',
+      dJob:{
+        ref:'RD-24815', customer:'Sinnott Electrical', addr:'Blackthorn Rd, Sandyford Business Park',
+        town:'Dublin 18', eircode:'D18 T9K4',
+        stageLabel: ['DROP 4 OF 7 · COLLECTED','ARRIVED AT DROP','SIGNED — SYNCING'][Math.min(s.dStage,2)],
+        cta: ['Arrived at delivery','Complete delivery','Next drop →'][Math.min(s.dStage,2)],
+        facts:[{ k:'Pieces', v:'2 boxes' },{ k:'Weight', v:'14 kg' },{ k:'Due', v:'16:00' }],
+      },
+      advanceStage: () => this.setState({ dStage: (s.dStage + 1) % 3, showFail:false }),
+      failJob: () => this.setState({ showFail: !s.showFail }),
+      showFailReasons: s.showFail,
+      failReasons:['No access to premises','Closed / nobody there','Refused — wrong goods','Damaged in transit','Unsafe to unload'].map(label => ({ label, onClick: () => this.setState({ showFail:false }) })),
+      toggleFuel: () => this.setState({ dFuel: !s.dFuel }),
+      showFuel: s.dFuel,
+      dRemaining:'3',
+      dQueue:[
+        { n:'5', customer:'Whitford House Hotel', town:'Dublin Airport', window:'By 17:30', km:'18 km' },
+        { n:'6', customer:"St Aidan's School", town:'Dublin 8', window:'By 16:30', km:'26 km' },
+        { n:'7', customer:'Return leg · depot', town:'Wexford', window:'By 19:00', km:'142 km' },
+      ],
+      driverNotes:[
+        { title:'One tap per event', body:'Arrived, delivered, failed. Every tap timestamps and GPS-stamps itself, so dispatch never has to ring for a status.' },
+        { title:'POD is automatic', body:'Photo and signature upload against the job reference and reach the customer by email before the driver pulls away.' },
+        { title:'Shift clock feeds payroll', body:'Clock-in and clock-out become the hours on the Friday payroll run — no timesheets.' },
+        { title:'Works offline', body:'Signal drops on the N11 and the Cork run happen. Events queue locally and sync when the van gets bars.' },
+      ],
+    };
+  }
+
+  mapDetail(d) {
+    if (!d) return null;
+    return { ...d,
+      sections: d.sections.map(sec => ({ title:sec.title, rows:sec.rows.map(r => ({ k:r[0], v:r[1] })) })),
+      actions: d.actions.map((label,i) => ({ label, bg: i===0 ? '#0E1620' : '#F4F5F7', fg: i===0 ? '#fff' : '#3C444D' })) };
+  }
+
+  detailFor(d, fin) {
+    if (!d) return null;
+    const m = (k,v) => ({ k, v });
+    if (d.kind === 'customer') {
+      const names = ['Sinnott Electrical Ltd','McGuiness Transport','Wexford Creamery','Harvey Norman Wexford','Kehoe Pharmacy Group','Slaney Foods Intl'];
+      const towns = ['Wexford Town','Wexford Town','Drinagh','Drinagh','Enniscorthy','Bunclody'];
+      const mtd = ['€2,840','€3,600','€4,215','€1,980','€640','€5,180'];
+      const owed = ['€1,120','€0','€2,455','€1,980','€0','€3,700'];
+      return { eyebrow:'CUSTOMER ACCOUNT', title:names[d.i], badge:'Active', badgeColor:'#1E8E5A',
+        facts:[m('Base',towns[d.i]), m('Terms','30 days'), m('Spend MTD', fin ? mtd[d.i] : '••'), m('Outstanding', fin ? owed[d.i] : '••'), m('Rate card','Zone card −8%'), m('Since','2011')],
+        sections:[
+          { title:'Recent jobs', rows:[['RD-24815 · Sandyford','On route'],['RD-24828 · Naas','Assigned'],['RD-24805 · Portlaoise','Delivered'],['RD-24799 · Athlone','Delivered']] },
+          { title:'Account settings', rows:[['Portal users','2 logins'],['PO required','Yes — blocks booking without one'],['Invoice delivery','Email to accounts@'],['Credit limit', fin ? '€5,000' : '••'],['Notes','Goods-in gate closes 16:30']] },
+        ],
+        actions:['Open full account','New job for this customer'] };
+    }
+    if (d.kind === 'van') {
+      const v = VANS[d.i];
+      return { eyebrow:'FLEET RECORD', title:v.van + ' · ' + v.reg, badge:v.model, badgeColor:'#0F7DC2',
+        facts:[m('Driver',v.driver), m('Odometer','184,220 km'), m('Motor tax','14 Sep 26'), m('CVRT','03 Mar 27'), m('Next service','in 4,200 km'), m('Insurance','AXA · 31 Dec 26')],
+        sections:[
+          { title:'Running cost (30 days)', rows:[['Fuel', fin ? '€612' : '••'],['Tyres & service', fin ? '€240' : '••'],['Cost per km', fin ? '€0.19' : '••'],['Drops completed','132'],['Idle time','6.1 h']] },
+          { title:'History', rows:[['22 Aug 26','Service · 10,000 km interval'],['04 Jul 26','Tyres ×2, front'],['19 May 26','Windscreen replaced'],['03 Mar 26','CVRT passed, no advisories']] },
+        ],
+        actions:['Book service','Mark off road'] };
+    }
+    if (d.kind === 'invoice') {
+      const nos = ['INV-4021','INV-4020','INV-4019','INV-4018','INV-4017','INV-4016','INV-4015','DRAFT-42'];
+      const cus = ['Slaney Foods Intl','Wexford Creamery','Harvey Norman Wexford','Sinnott Electrical Ltd','McGuiness Transport','Cullen Builders','Kehoe Pharmacy Group','Weekly run · 128 jobs'];
+      const amt = ['€3,700','€2,455','€1,980','€1,120','€3,600','€2,140','€640','€9,740'];
+      return { eyebrow:'INVOICE', title:nos[d.i], badge:cus[d.i], badgeColor:'#131A21',
+        facts:[m('Net', fin ? amt[d.i] : '••'), m('VAT 23%', fin ? 'included' : '••'), m('Issued','25 Aug 26'), m('Due','24 Sep 26'), m('Jobs billed','18'), m('Xero','Synced 02:10')],
+        sections:[
+          { title:'Lines', rows:[['Same-day urgent ×9', fin ? '€702' : '••'],['Multi-drop routes ×4', fin ? '€740' : '••'],['Pallet freight ×3', fin ? '€420' : '••'],['Waiting time 2 h', fin ? '€88' : '••'],['Fuel surcharge 4.5%', fin ? '€87' : '••']] },
+          { title:'Attached', rows:[['POD pack','18 signed dockets, one PDF'],['Job listing','CSV with your PO refs'],['Payment details','Bank transfer · IE29 AIBK 9311 5212 3456 78']] },
+        ],
+        actions:['Email to customer','Download PDF'] };
+    }
+    if (d.kind === 'pod') {
+      const refs = ['RD-24816','RD-24820','RD-24826','RD-24827','RD-24812','RD-24809','RD-24805','RD-24801'];
+      const cus = ['Kehoe Pharmacy','Slaney Foods Intl','McGuiness Transport','Harvey Norman','Byrne Joinery','Wexford Creamery','Sinnott Electrical','Rossiter Motors'];
+      const failed = d.i === 3;
+      return { eyebrow:'PROOF OF DELIVERY', title:refs[d.i], badge: failed ? 'Failed · no access' : 'Delivered', badgeColor: failed ? '#B0121C' : '#1E8E5A',
+        facts:[m('Customer',cus[d.i]), m('Van','RD7 · A. Murphy'), m('Delivered','Today 14:02'), m('Signed by','S. Kehoe'), m('GPS','52.5012, -6.5661'), m('Within geofence','Yes · 18 m')],
+        sections:[
+          { title:'Evidence', rows:[['Photo of goods','Captured on drop, 1.2 MB'],['Signature','Drawn on screen'],['Barcode scan','2 pieces matched'],['Device','RD7 phone · app 4.2.1']] },
+          { title:'Sent to customer', rows:[['Email','14:02 · accounts@kehoepharmacy.ie'],['SMS','14:02 · tracking link closed'],['Retention','Kept 7 years for claims']] },
+        ],
+        actions:['Download POD PDF','Email again'] };
+    }
+    return null;
+  }
+
+  assign(van) {
+    const id = this.state.selectedId;
+    const job = JOBS.find(j => j.id === id);
+    if (!job) return;
+    job.van = van;
+    if (job.status === 'Unassigned') job.status = 'Assigned';
+    this.forceUpdate();
+  }
+}
+
+</script>
+</body>
+</html>
